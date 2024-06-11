@@ -1,0 +1,190 @@
+@charset "UTF-8";
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.soul.b::before,
+.blue .name-block .soul::before {
+  content: "水";
+}
+
+.soul.r::before,
+.red .name-block .soul::before {
+  content: "火";
+}
+
+.soul.g::before,
+.green .name-block .soul::before {
+  content: "土";
+}
+
+.soul.w::before {
+  content: "白";
+}
+
+
+.blue,
+.blue .health,
+.soul.b, .blue .name-block .soul  {
+  background: url(art/blue_background.png);
+}
+
+.green,
+.green .health,
+.soul.g, .green .name-block .soul {
+  background: url(art/green_background.png)
+}
+
+.red,
+.red .health,
+.soul.r, .red .name-block .soul {
+  background: url(art/red_background.png)
+}
+
+:root {
+  --scale: 0.8;
+}
+
+.effect, .soul {    
+  box-shadow: 0 8px 8px rgba(0, 0, 0, .5), 0 0 0 3px #3f3f46, 0 0 0 5px #a1a1a1;
+  text-shadow: 0 0 10px #000;
+  border-width: 2px;
+  border-color: rgb(219 39 119);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  
+  
+  --tw-text-opacity: 1;
+color: white;}
+
+.entry { 
+  border: outset rgb(255, 193, 77) calc(var(--scale) * 5px);
+
+  --tw-gradient-from: #ebaa1f;
+  --tw-gradient-stops: var(--tw-gradient-from), #ff7b00, var(--tw-gradient-to);
+  --tw-gradient-to: #da821e;
+  border-radius: calc(var(--scale) * 0px) calc(var(--scale) * 40px) calc(var(--scale) * 40px) calc(var(--scale) * 0px);
+}
+
+.ability {
+  border: outset #b872ff calc(var(--scale) * 5px);
+
+  --tw-gradient-from: #7b229e;
+  --tw-gradient-stops: var(--tw-gradient-from), #b60cfa, var(--tw-gradient-to);
+  --tw-gradient-to: #831bac;
+  border-radius: calc(var(--scale) * 50px) calc(var(--scale) * 0px) calc(var(--scale) * 50px) calc(var(--scale) * 0px);
+}
+
+.soul::before {
+  margin-left: calc(var(--scale) * 10px);
+}
+
+.name-block, .art, .text-block {box-shadow: 0 8px 8px rgba(0, 0, 0, .5), 0 0 0 3px #3f3f46, 0 0 0 5px #a1a1a1;   border-width: 2px;
+}
+.card {
+  min-height: calc(var(--scale) * 1190px);
+  max-height: calc(var(--scale) * 1190px);
+  min-width: calc(var(--scale) * 816px);
+  max-width: calc(var(--scale) * 816px);
+  box-sizing: border-box;
+  margin: calc(var(--scale) * 106.8px);
+  margin-left: calc(var(--scale) * 87px);
+  outline: 35px solid white;
+}
+
+.name-block {
+  display: flex;
+  justify-content: space-between;
+  margin: calc(var(--scale) * 30px);
+  margin-top: calc(var(--scale) * 0px);
+  margin-bottom: calc(var(--scale) * 0px);
+  border: outset silver calc(var(--scale) * 10px);
+  margin-top: calc(var(--scale) * 35px);
+  background: url(art/background.png);
+  background-size: cover;
+}
+
+.name {
+  font-size: calc(var(--scale) * 80px);
+  padding: calc(var(--scale) * 8px);
+}
+
+.soul-block {
+  position: absolute;
+  margin-left: calc(var(--scale) * -7px);
+  margin-top: calc(var(--scale) * 10px);
+}
+
+.soul {
+  border: outset lightgrey calc(var(--scale) * 5px);
+  height: calc(var(--scale) * 80px);
+  width: calc(var(--scale) * 80px);
+  border-radius: calc(var(--scale) * 100px);
+  margin: calc(var(--scale) * 15px);
+  color: white;
+  font-size: calc(var(--scale) * 50px);
+  background: grey;
+  font-weight: bold;
+
+}
+
+.art {
+  height: calc(var(--scale) * 700px);
+  margin: calc(var(--scale) * 30px);
+  background-size: cover !important;
+  margin-top: calc(var(--scale) * 00px);
+  margin-bottom: calc(var(--scale) * 0px);
+  border: inset silver calc(var(--scale) * 10px);
+}
+
+.effect {
+  padding-left: calc(var(--scale) * 10px);
+  padding-right: calc(var(--scale) * 20px);
+  margin-right: calc(var(--scale) * 20px);
+  font-style: italic;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: calc(var(--scale) * 60px);
+  margin-left: calc(var(--scale) * -40px);
+  display: inline-block; 
+    transform: translateY(-5px); 
+}
+
+.text-block {
+  margin: calc(var(--scale) * 30px);
+  margin-top: calc(var(--scale) * 0px);
+  margin-bottom: calc(var(--scale) * 0px);
+  display: block;
+  height: calc(var(--scale) * 290px);
+  display: inline-block;
+  background: rgb(255, 255, 255);
+  background: url(art/background.png);
+  border: outset silver calc(var(--scale) * 10px);
+  padding: 0px;
+  width: -webkit-fill-available;
+  font-size: calc(var(--scale) * 70px);
+  background-repeat: round;
+  border-radius: 0px 0px calc(var(--scale) * 50px) calc(var(--scale) * 50px);
+}
+
+.cardtext {
+  padding: calc(var(--scale) * 10px);
+  margin: 0px;
+}
+
+.Soul .soul-block {
+  display: none;
+}
+
+.Soul .name-block {
+  border-radius: calc(var(--scale) *50px) 0px 0px 0px;
+}
+
+.undefined {
+  display: none;
+}
+
+.Hero .name-block .soul {display: none;}

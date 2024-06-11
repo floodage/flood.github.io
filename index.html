@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOUL</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="cardstyles.css" />
+  <link rel="stylesheet" href="boardstyle.css" />
+
+  <script src="script.js" defer></script>
+</head>
+
+<body oncontextmenu="return false;" onload="Load()">
+  <div class="container">
+    <div class="debug">
+      <button id="button" onclick="Load()" style="padding: 10px">Load</button>
+      <button id="button" onclick="print()" style="padding: 10px">
+        Print all
+      </button>
+      <button id="button" onclick="shuffle(gamestate.deck)" style="padding: 10px">
+        Shuffle
+      </button>
+      <button id="button" onclick="startMulligan(gamestate.deck)" style="padding: 10px">
+        startMulligan
+      </button>
+      <button id="button" onclick="clearSearchBox()" style="padding: 10px">
+        clear search box
+      </button>
+    </div>
+    <div class="mini" id="miniclone">
+      <div class="art"></div>
+
+      <div class="soul-block">
+        <div class="soul"></div>
+        <div class="soul"></div>
+      </div>
+      <b class="effect"></b>
+    </div>
+    <div class="card" id="clone">
+      <div class="cardbg"></div>
+      <div class="name-block">
+        <p class="name"></p>
+        <div class="soul"></div>
+      </div>
+
+      <div class="soul-block">
+        <div class="soul"></div>
+        <div class="soul"></div>
+      </div>
+      <div class="art"></div>
+
+      <div class="text-block">
+        <p class="cardtext"><b class="effect"></b></p>
+      </div>
+    </div>
+    <div class="searchbox" id="searchbox"></div>
+    <div class="boardrow">
+      <div class="holder">
+        <div class="front row" id="frontrow" onclick="leftClick(this.id)" oncontextmenu="rightClick(this.id)"></div>
+        <div class="deck pile" id="deck" onclick="leftClick(this.id)" oncontextmenu="rightClick(this.id)"></div>
+      </div>
+      <div class="holder">
+        <div class="back row" id="backrow" onclick="leftClick(this.id)" oncontextmenu="rightClick(this.id)"></div>
+        <div class="discard pile" id="discard" onclick="leftClick(this.id)" oncontextmenu="rightClick(this.id)"></div>
+      </div>
+      <div class="hand" id="hand" onclick="leftClick(this.id)">
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

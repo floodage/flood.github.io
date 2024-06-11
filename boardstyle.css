@@ -1,0 +1,104 @@
+div {font-size: 100px;}
+
+.searchbox {
+  width: 1000px;
+  height: 1000px;
+  display: flex;
+  background: lightgrey;
+  flex-direction: row;
+    flex-wrap: wrap;
+}
+.boardrow {
+  background: lightgrey;
+  width: 1000px;
+  height: 1000px;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  width: 800px;
+  height: 250px;
+  background: white;
+  outline: 10px solid black;
+  display: flex;
+}
+
+.pile {
+  width: 200px;
+  height: 250px;
+  background: white;
+  outline: 10px solid black;
+}
+
+.handslot {
+  width: 200px;
+  height: 250px;
+  color: black;
+  outline: 10px solid black;
+
+}
+
+.hand {
+  width: 1000px;
+  height: 250px;
+  background: white;
+  outline: 10px solid black;
+  display: flex;
+}
+
+.holder {display: flex;}
+
+#clone, #miniclone {
+  display: none;
+}
+
+
+
+.mini {
+  min-height: calc(var(--scale) * 250px);
+  max-height: calc(var(--scale) * 250px);
+  min-width: calc(var(--scale) * 150px);
+  max-width: calc(var(--scale) * 150pxpx);
+  box-sizing: border-box;
+  outline: 10px solid white;
+}
+
+.mini .art {
+  min-height: calc(var(--scale) * 250px);
+  max-height: calc(var(--scale) * 250px);
+  min-width: calc(var(--scale) * 200px);
+  max-width: calc(var(--scale) * 200px);
+  position: absolute;
+  margin: 0;
+ 
+}
+
+
+.mini .soul-block {
+  position: absolute;
+  margin-left: calc(var(--scale) * -7px);
+  margin-top: calc(var(--scale) * 10px);
+}
+
+.mini .soul {
+  border: outset lightgrey calc(var(--scale) * 5px);
+  height: calc(var(--scale) * 20px);
+  width: calc(var(--scale) * 20px);
+  border-radius: calc(var(--scale) * 100px);
+  margin: calc(var(--scale) * 15px);
+  color: white;
+  font-size: calc(var(--scale) * 50px);
+  background: grey;
+  font-weight: bold;
+  z-index: 4;
+}
+
+.mini .soul::before {display: none;}
+
+.mini .effect {font-size: 20px;
+position: absolute;
+margin-top: 140px;
+margin-left: 10px;}
+
+.mini.red, .mini.blue, .mini.green {background: none;}

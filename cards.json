@@ -1,0 +1,403 @@
+
+[
+    {
+      "data": [
+        {
+          "num": 0,
+          "type": "Soul",
+          "color": "blue",
+          "cost": "",
+          "name": "Rogue",
+          "effect": "entry",
+          "cardtext": "Search 1 copy of this, summon it hexed.",
+          "img": "art/0.png",
+          "css": ".card0 .name:before {content:\"Rogue\";} .card0 .type:before {content:\"Soul\";} .card0 .art {background: url(art/0.png);} .card0 .effect:before {content:\"entry\";}.card0 .cardtext:after {content:\"Search 1 copy of this, summon it hexed.\";}.card0 .num:before {content:\"0\";}"
+        },
+        {
+          "num": 1,
+          "type": "Soul",
+          "color": "blue",
+          "cost": "",
+          "name": "Siren",
+          "effect": "entry",
+          "cardtext": "Search 2 heroes. Discard 1. ",
+          "img": "art/1.png",
+          "css": ".card1 .name:before {content:\"Siren\";} .card1 .type:before {content:\"Soul\";} .card1 .art {background: url(art/1.png);} .card1 .effect:before {content:\"entry\";}.card1 .cardtext:after {content:\"Search 2 heroes. Discard 1. \";}.card1 .num:before {content:\"1\";}"
+        },
+        {
+          "num": 2,
+          "type": "Soul",
+          "color": "blue",
+          "cost": "",
+          "name": "Strider",
+          "effect": "entry",
+          "cardtext": "Search 1 blue card.",
+          "img": "art/2.png",
+          "css": ".card2 .name:before {content:\"Strider\";} .card2 .type:before {content:\"Soul\";} .card2 .art {background: url(art/2.png);} .card2 .effect:before {content:\"entry\";}.card2 .cardtext:after {content:\"Search 1 blue card.\";}.card2 .num:before {content:\"2\";}"
+        },
+        {
+          "num": 3,
+          "type": "Soul",
+          "color": "blue",
+          "cost": "",
+          "name": "Thief",
+          "effect": "entry",
+          "cardtext": "Draw 2. Discard 1.",
+          "img": "art/3.png",
+          "css": ".card3 .name:before {content:\"Thief\";} .card3 .type:before {content:\"Soul\";} .card3 .art {background: url(art/3.png);} .card3 .effect:before {content:\"entry\";}.card3 .cardtext:after {content:\"Draw 2. Discard 1.\";}.card3 .num:before {content:\"3\";}"
+        },
+        {
+          "num": 4,
+          "type": "Soul",
+          "color": "green",
+          "cost": "",
+          "name": "Seer",
+          "effect": "entry",
+          "cardtext": "Search 1 hero. Shuffle 1.",
+          "img": "art/4.png",
+          "css": ".card4 .name:before {content:\"Seer\";} .card4 .type:before {content:\"Soul\";} .card4 .art {background: url(art/4.png);} .card4 .effect:before {content:\"entry\";}.card4 .cardtext:after {content:\"Search 1 hero. Shuffle 1.\";}.card4 .num:before {content:\"4\";}"
+        },
+        {
+          "num": 5,
+          "type": "Soul",
+          "color": "green",
+          "cost": "",
+          "name": "Warlock",
+          "effect": "entry",
+          "cardtext": "Search 1 unit. Discard 1. ",
+          "img": "art/5.png",
+          "css": ".card5 .name:before {content:\"Warlock\";} .card5 .type:before {content:\"Soul\";} .card5 .art {background: url(art/5.png);} .card5 .effect:before {content:\"entry\";}.card5 .cardtext:after {content:\"Search 1 unit. Discard 1. \";}.card5 .num:before {content:\"5\";}"
+        },
+        {
+          "num": 6,
+          "type": "Soul",
+          "color": "green",
+          "cost": "",
+          "name": "Scout",
+          "effect": "entry",
+          "cardtext": "Draw 1. Shuffle 1.",
+          "img": "art/6.png",
+          "css": ".card6 .name:before {content:\"Scout\";} .card6 .type:before {content:\"Soul\";} .card6 .art {background: url(art/6.png);} .card6 .effect:before {content:\"entry\";}.card6 .cardtext:after {content:\"Draw 1. Shuffle 1.\";}.card6 .num:before {content:\"6\";}"
+        },
+        {
+          "num": 7,
+          "type": "Soul",
+          "color": "green",
+          "cost": "",
+          "name": "Ghoul",
+          "effect": "entry",
+          "cardtext": "Recover 1 unit. Discard 1.",
+          "img": "art/7.png",
+          "css": ".card7 .name:before {content:\"Ghoul\";} .card7 .type:before {content:\"Soul\";} .card7 .art {background: url(art/7.png);} .card7 .effect:before {content:\"entry\";}.card7 .cardtext:after {content:\"Recover 1 unit. Discard 1.\";}.card7 .num:before {content:\"7\";}"
+        },
+        {
+          "num": 8,
+          "type": "Soul",
+          "color": "red",
+          "cost": "",
+          "name": "Squire",
+          "effect": "entry",
+          "cardtext": "Search 1 hero.",
+          "img": "art/8.png",
+          "css": ".card8 .name:before {content:\"Squire\";} .card8 .type:before {content:\"Soul\";} .card8 .art {background: url(art/8.png);} .card8 .effect:before {content:\"entry\";}.card8 .cardtext:after {content:\"Search 1 hero.\";}.card8 .num:before {content:\"8\";}"
+        },
+        {
+          "num": 9,
+          "type": "Soul",
+          "color": "red",
+          "cost": "",
+          "name": "Soldier",
+          "effect": "entry",
+          "cardtext": "Search 1 copy of this, summon it hexed.",
+          "img": "art/9.png",
+          "css": ".card9 .name:before {content:\"Soldier\";} .card9 .type:before {content:\"Soul\";} .card9 .art {background: url(art/9.png);} .card9 .effect:before {content:\"entry\";}.card9 .cardtext:after {content:\"Search 1 copy of this, summon it hexed.\";}.card9 .num:before {content:\"9\";}"
+        },
+        {
+          "num": 10,
+          "type": "Soul",
+          "color": "red",
+          "cost": "",
+          "name": "Bandit",
+          "effect": "entry",
+          "cardtext": "Draw 1. Mill 1.",
+          "img": "art/10.png",
+          "css": ".card10 .name:before {content:\"Bandit\";} .card10 .type:before {content:\"Soul\";} .card10 .art {background: url(art/10.png);} .card10 .effect:before {content:\"entry\";}.card10 .cardtext:after {content:\"Draw 1. Mill 1.\";}.card10 .num:before {content:\"10\";}"
+        },
+        {
+          "num": 11,
+          "type": "Soul",
+          "color": "red",
+          "cost": "",
+          "name": "Raider",
+          "effect": "entry",
+          "cardtext": "Search 1 soul.",
+          "img": "art/11.png",
+          "css": ".card11 .name:before {content:\"Raider\";} .card11 .type:before {content:\"Soul\";} .card11 .art {background: url(art/11.png);} .card11 .effect:before {content:\"entry\";}.card11 .cardtext:after {content:\"Search 1 soul.\";}.card11 .num:before {content:\"11\";}"
+        },
+        {
+          "num": 12,
+          "type": "Hero",
+          "color": "blue",
+          "cost": "w",
+          "name": "Dark Shockmage",
+          "effect": "entry",
+          "cardtext": "Discard your hand. Draw 4.",
+          "img": "art/12.png",
+          "css": ".card12 .name:before {content:\"Dark Shockmage\";} .card12 .type:before {content:\"Hero\";} .card12 .art {background: url(art/12.png);} .card12 .effect:before {content:\"entry\";}.card12 .cardtext:after {content:\"Discard your hand. Draw 4.\";}.card12 .num:before {content:\"12\";}"
+        },
+        {
+          "num": 13,
+          "type": "Hero",
+          "color": "blue",
+          "cost": "w",
+          "name": "Deathlock Ghoul",
+          "effect": "ability",
+          "cardtext": "Mill 2. Recover 1.",
+          "img": "art/13.png",
+          "css": ".card13 .name:before {content:\"Deathlock Ghoul\";} .card13 .type:before {content:\"Hero\";} .card13 .art {background: url(art/13.png);} .card13 .effect:before {content:\"ability\";}.card13 .cardtext:after {content:\"Mill 2. Recover 1.\";}.card13 .num:before {content:\"13\";}"
+        },
+        {
+          "num": 14,
+          "type": "Hero",
+          "color": "blue",
+          "cost": "w",
+          "name": "Singed Firemage",
+          "effect": "entry",
+          "cardtext": "Choose 1 enemy, it takes +1 damage.",
+          "img": "art/14.png",
+          "css": ".card14 .name:before {content:\"Singed Firemage\";} .card14 .type:before {content:\"Hero\";} .card14 .art {background: url(art/14.png);} .card14 .effect:before {content:\"entry\";}.card14 .cardtext:after {content:\"Choose 1 enemy, it takes +1 damage.\";}.card14 .num:before {content:\"14\";}"
+        },
+        {
+          "num": 15,
+          "type": "Hero",
+          "color": "blue",
+          "cost": "w",
+          "name": "Soulfiend Wizard",
+          "effect": "ability",
+          "cardtext": "Search 1 Soul.",
+          "img": "art/15.png",
+          "css": ".card15 .name:before {content:\"Soulfiend Wizard\";} .card15 .type:before {content:\"Hero\";} .card15 .art {background: url(art/15.png);} .card15 .effect:before {content:\"ability\";}.card15 .cardtext:after {content:\"Search 1 Soul.\";}.card15 .num:before {content:\"15\";}"
+        },
+        {
+          "num": 16,
+          "type": "Hero",
+          "color": "green",
+          "cost": "w",
+          "name": "Azure Tactician",
+          "effect": "ability",
+          "cardtext": "Shuffle your hand. Draw 3.",
+          "img": "art/16.png",
+          "css": ".card16 .name:before {content:\"Azure Tactician\";} .card16 .type:before {content:\"Hero\";} .card16 .art {background: url(art/16.png);} .card16 .effect:before {content:\"ability\";}.card16 .cardtext:after {content:\"Shuffle your hand. Draw 3.\";}.card16 .num:before {content:\"16\";}"
+        },
+        {
+          "num": 17,
+          "type": "Hero",
+          "color": "green",
+          "cost": "w",
+          "name": "Deathlock Grunt",
+          "effect": "entry",
+          "cardtext": "Recover 1.",
+          "img": "art/17.png",
+          "css": ".card17 .name:before {content:\"Deathlock Grunt\";} .card17 .type:before {content:\"Hero\";} .card17 .art {background: url(art/17.png);} .card17 .effect:before {content:\"entry\";}.card17 .cardtext:after {content:\"Recover 1.\";}.card17 .num:before {content:\"17\";}"
+        },
+        {
+          "num": 18,
+          "type": "Hero",
+          "color": "green",
+          "cost": "g",
+          "name": "Soulrose Witch",
+          "effect": "ability",
+          "cardtext": "Your next hero's soul cost is 1 (土) soul less.",
+          "img": "art/18.png",
+          "css": ".card18 .name:before {content:\"Soulrose Witch\";} .card18 .type:before {content:\"Hero\";} .card18 .art {background: url(art/18.png);} .card18 .effect:before {content:\"ability\";}.card18 .cardtext:after {content:\"Your next hero's soul cost is 1 (土) soul less.\";}.card18 .num:before {content:\"18\";}"
+        },
+        {
+          "num": 19,
+          "type": "Hero",
+          "color": "green",
+          "cost": "w",
+          "name": "Deathlock Brute",
+          "effect": "entry",
+          "cardtext": "Attach 1 soul from the discard to another hero.",
+          "img": "art/19.png",
+          "css": ".card19 .name:before {content:\"Deathlock Brute\";} .card19 .type:before {content:\"Hero\";} .card19 .art {background: url(art/19.png);} .card19 .effect:before {content:\"entry\";}.card19 .cardtext:after {content:\"Attach 1 soul from the discard to another hero.\";}.card19 .num:before {content:\"19\";}"
+        },
+        {
+          "num": 20,
+          "type": "Hero",
+          "color": "red",
+          "cost": "w",
+          "name": "Rebel Strategist",
+          "effect": "ability",
+          "cardtext": "Draw until your hand size is 3.",
+          "img": "art/20.png",
+          "css": ".card20 .name:before {content:\"Rebel Strategist\";} .card20 .type:before {content:\"Hero\";} .card20 .art {background: url(art/20.png);} .card20 .effect:before {content:\"ability\";}.card20 .cardtext:after {content:\"Draw until your hand size is 3.\";}.card20 .num:before {content:\"20\";}"
+        },
+        {
+          "num": 21,
+          "type": "Hero",
+          "color": "red",
+          "cost": "w",
+          "name": "Triad Gateweaver",
+          "effect": "entry",
+          "cardtext": "Swap 1 ally with 1 from your deck (of the same cost).",
+          "img": "art/21.png",
+          "css": ".card21 .name:before {content:\"Triad Gateweaver\";} .card21 .type:before {content:\"Hero\";} .card21 .art {background: url(art/21.png);} .card21 .effect:before {content:\"entry\";}.card21 .cardtext:after {content:\"Swap 1 ally with 1 from your deck (of the same cost).\";}.card21 .num:before {content:\"21\";}"
+        },
+        {
+          "num": 22,
+          "type": "Hero",
+          "color": "red",
+          "cost": "w",
+          "name": "Bloodline Charger",
+          "effect": "ability",
+          "cardtext": "Discard 1. Ready an ally hero.",
+          "img": "art/22.png",
+          "css": ".card22 .name:before {content:\"Bloodline Charger\";} .card22 .type:before {content:\"Hero\";} .card22 .art {background: url(art/22.png);} .card22 .effect:before {content:\"ability\";}.card22 .cardtext:after {content:\"Discard 1. Ready an ally hero.\";}.card22 .num:before {content:\"22\";}"
+        },
+        {
+          "num": 23,
+          "type": "Hero",
+          "color": "red",
+          "cost": "w",
+          "name": "Bloodline Striker",
+          "effect": "entry",
+          "cardtext": "Give an ally hero +1 attack.",
+          "img": "art/23.png",
+          "css": ".card23 .name:before {content:\"Bloodline Striker\";} .card23 .type:before {content:\"Hero\";} .card23 .art {background: url(art/23.png);} .card23 .effect:before {content:\"entry\";}.card23 .cardtext:after {content:\"Give an ally hero +1 attack.\";}.card23 .num:before {content:\"23\";}"
+        },
+        {
+          "num": 24,
+          "type": "Hero",
+          "color": "blue",
+          "cost": "bw",
+          "name": "Triad Archer",
+          "effect": "entry",
+          "cardtext": "If 3 allies are different colors: Expel 2 from Target enemy.",
+          "img": "art/24.png",
+          "css": ".card24 .name:before {content:\"Triad Archer\";} .card24 .type:before {content:\"Hero\";} .card24 .art {background: url(art/24.png);} .card24 .effect:before {content:\"entry\";}.card24 .cardtext:after {content:\"If 3 allies are different colors: Expel 2 from Target enemy.\";}.card24 .num:before {content:\"24\";}"
+        },
+        {
+          "num": 25,
+          "type": "Hero",
+          "color": "blue",
+          "cost": "bg",
+          "name": "Tidecaller Mystic",
+          "effect": "ability",
+          "cardtext": "Discard 1 ally. Bounce 1 enemy. Begin combat.",
+          "img": "art/25.png",
+          "css": ".card25 .name:before {content:\"Tidecaller Mystic\";} .card25 .type:before {content:\"Hero\";} .card25 .art {background: url(art/25.png);} .card25 .effect:before {content:\"ability\";}.card25 .cardtext:after {content:\"Discard 1 ally. Bounce 1 enemy. Begin combat.\";}.card25 .num:before {content:\"25\";}"
+        },
+        {
+          "num": 26,
+          "type": "Hero",
+          "color": "blue",
+          "cost": "bb",
+          "name": "Azure Ringleader",
+          "effect": "ability",
+          "cardtext": "Discard 1 blue. Choose 2 enemies, they share damage.",
+          "img": "art/26.png",
+          "css": ".card26 .name:before {content:\"Azure Ringleader\";} .card26 .type:before {content:\"Hero\";} .card26 .art {background: url(art/26.png);} .card26 .effect:before {content:\"ability\";}.card26 .cardtext:after {content:\"Discard 1 blue. Choose 2 enemies, they share damage.\";}.card26 .num:before {content:\"26\";}"
+        },
+        {
+          "num": 27,
+          "type": "Hero",
+          "color": "blue",
+          "cost": "br",
+          "name": "Azure Berserker",
+          "effect": "entry",
+          "cardtext": "Expel 1 from each enemy.",
+          "img": "art/27.png",
+          "css": ".card27 .name:before {content:\"Azure Berserker\";} .card27 .type:before {content:\"Hero\";} .card27 .art {background: url(art/27.png);} .card27 .effect:before {content:\"entry\";}.card27 .cardtext:after {content:\"Expel 1 from each enemy.\";}.card27 .num:before {content:\"27\";}"
+        },
+        {
+          "num": 28,
+          "type": "Hero",
+          "color": "green",
+          "cost": "gb",
+          "name": "Plague Mage",
+          "effect": "entry",
+          "cardtext": "Hex 2 enemies.",
+          "img": "art/28.png",
+          "css": ".card28 .name:before {content:\"Plague Mage\";} .card28 .type:before {content:\"Hero\";} .card28 .art {background: url(art/28.png);} .card28 .effect:before {content:\"entry\";}.card28 .cardtext:after {content:\"Hex 2 enemies.\";}.card28 .num:before {content:\"28\";}"
+        },
+        {
+          "num": 29,
+          "type": "Hero",
+          "color": "green",
+          "cost": "gr",
+          "name": "Soulrose Lich",
+          "effect": "entry",
+          "cardtext": "Discard 1. Your next unit costs 2 less of that color.",
+          "img": "art/29.png",
+          "css": ".card29 .name:before {content:\"Soulrose Lich\";} .card29 .type:before {content:\"Hero\";} .card29 .art {background: url(art/29.png);} .card29 .effect:before {content:\"entry\";}.card29 .cardtext:after {content:\"Discard 1. Your next unit costs 2 less of that color.\";}.card29 .num:before {content:\"29\";}"
+        },
+        {
+          "num": 30,
+          "type": "Hero",
+          "color": "green",
+          "cost": "gw",
+          "name": "Deathlock Seer",
+          "effect": "ability",
+          "cardtext": "Swap this with a hero in your discard, ready it.",
+          "img": "art/30.png",
+          "css": ".card30 .name:before {content:\"Deathlock Seer\";} .card30 .type:before {content:\"Hero\";} .card30 .art {background: url(art/30.png);} .card30 .effect:before {content:\"ability\";}.card30 .cardtext:after {content:\"Swap this with a hero in your discard, ready it.\";}.card30 .num:before {content:\"30\";}"
+        },
+        {
+          "num": 31,
+          "type": "Hero",
+          "color": "green",
+          "cost": "gg",
+          "name": "Deathlock Ruler",
+          "effect": "ability",
+          "cardtext": "Recover 1 hero, summon it.",
+          "img": "art/31.png",
+          "css": ".card31 .name:before {content:\"Deathlock Ruler\";} .card31 .type:before {content:\"Hero\";} .card31 .art {background: url(art/31.png);} .card31 .effect:before {content:\"ability\";}.card31 .cardtext:after {content:\"Recover 1 hero, summon it.\";}.card31 .num:before {content:\"31\";}"
+        },
+        {
+          "num": 32,
+          "type": "Hero",
+          "color": "red",
+          "cost": "rg",
+          "name": "Holy Paladin",
+          "effect": "entry",
+          "cardtext": "Summon 1 soul from hand.",
+          "img": "art/32.png",
+          "css": ".card32 .name:before {content:\"Holy Paladin\";} .card32 .type:before {content:\"Hero\";} .card32 .art {background: url(art/32.png);} .card32 .effect:before {content:\"entry\";}.card32 .cardtext:after {content:\"Summon 1 soul from hand.\";}.card32 .num:before {content:\"32\";}"
+        },
+        {
+          "num": 33,
+          "type": "Hero",
+          "color": "red",
+          "cost": "rw",
+          "name": "Soulfiend Brute",
+          "effect": "ability",
+          "cardtext": "Search 1 red soul, attach it.",
+          "img": "art/33.png",
+          "css": ".card33 .name:before {content:\"Soulfiend Brute\";} .card33 .type:before {content:\"Hero\";} .card33 .art {background: url(art/33.png);} .card33 .effect:before {content:\"ability\";}.card33 .cardtext:after {content:\"Search 1 red soul, attach it.\";}.card33 .num:before {content:\"33\";}"
+        },
+        {
+          "num": 34,
+          "type": "Hero",
+          "color": "red",
+          "cost": "rb",
+          "name": "Chain Knight",
+          "effect": "entry",
+          "cardtext": "Stun 1 enemy.",
+          "img": "art/34.png",
+          "css": ".card34 .name:before {content:\"Chain Knight\";} .card34 .type:before {content:\"Hero\";} .card34 .art {background: url(art/34.png);} .card34 .effect:before {content:\"entry\";}.card34 .cardtext:after {content:\"Stun 1 enemy.\";}.card34 .num:before {content:\"34\";}"
+        },
+        {
+          "num": 35,
+          "type": "Hero",
+          "color": "red",
+          "cost": "rr",
+          "name": "Bloodline General",
+          "effect": "ability",
+          "cardtext": "Use any entry in play.",
+          "img": "art/35.png",
+          "css": ".card35 .name:before {content:\"Bloodline General\";} .card35 .type:before {content:\"Hero\";} .card35 .art {background: url(art/35.png);} .card35 .effect:before {content:\"ability\";}.card35 .cardtext:after {content:\"Use any entry in play.\";}.card35 .num:before {content:\"35\";}"
+        }
+      ]
+    }
+  ]

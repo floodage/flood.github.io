@@ -1,8 +1,26 @@
 div {font-size: 100px;}
+* {
+  margin: 0;
+}
+
+button {
+  font-size: calc(var(--scale) * 100px);
+}
+
+body {
+  background: grey;
+  display: flex;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.row > div, .hand > div, #searchbox > div {
+  width: 180px;
+}
 
 .searchbox {
   width: 1000px;
-  height: 1000px;
+  height: 1100px;
   display: flex;
   background: lightgrey;
   flex-direction: row;
@@ -11,8 +29,8 @@ div {font-size: 100px;}
 .boardrow {
   background: lightgrey;
   width: 1000px;
-  height: 1000px;
-  display: flex;
+  height: 800px;
+    display: flex;
   flex-direction: column;
 }
 
@@ -20,8 +38,8 @@ div {font-size: 100px;}
   width: 800px;
   height: 250px;
   background: white;
-  outline: 10px solid black;
   display: flex;
+
 }
 
 .pile {
@@ -61,7 +79,6 @@ div {font-size: 100px;}
   min-width: calc(var(--scale) * 150px);
   max-width: calc(var(--scale) * 150pxpx);
   box-sizing: border-box;
-  outline: 10px solid white;
 }
 
 .mini .art {
@@ -71,6 +88,8 @@ div {font-size: 100px;}
   max-width: calc(var(--scale) * 200px);
   position: absolute;
   margin: 0;
+  border-radius: 18px;
+
  
 }
 
@@ -82,7 +101,7 @@ div {font-size: 100px;}
 }
 
 .mini .soul {
-  border: outset lightgrey calc(var(--scale) * 5px);
+  border: none;
   height: calc(var(--scale) * 20px);
   width: calc(var(--scale) * 20px);
   border-radius: calc(var(--scale) * 100px);
@@ -92,6 +111,7 @@ div {font-size: 100px;}
   background: grey;
   font-weight: bold;
   z-index: 4;
+
 }
 
 .mini .soul::before {display: none;}
@@ -102,3 +122,29 @@ margin-top: 140px;
 margin-left: 10px;}
 
 .mini.red, .mini.blue, .mini.green {background: none;}
+
+.mini .soul.r {background: url(/art/red_background.png);}
+.mini .soul.b {background: url(/art/blue_background.png);}
+.mini .soul.g {background: url(/art/green_background.png);}
+
+.target {
+  background-color: red;;
+}
+
+.soul.attached {
+  height: calc(var(--scale)* 20px);
+  width: calc(var(--scale)* 20px);
+  border: none;
+}
+
+.soul.attached::before {display: none;}
+
+.ready {
+  outline: 10px solid green;
+}
+
+.enemy .holder {
+  flex-direction: row-reverse;
+}
+
+.searchbox {display: none;}

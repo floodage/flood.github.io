@@ -5,29 +5,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SOUL</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="cardstyles.css" />
-  <link rel="stylesheet" href="boardstyle.css" />
 
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles/cardstyles.css" />
+  <link rel="stylesheet" href="styles/boardstyle.css" />
+  <script type="module" src="load.js" defer></script>
+
+  <script type="module" src="alpha.js" defer></script>
+  <script type="module" src="effects.js" defer></script>
+  <script type="module" src="render.js" defer></script>
+  <script type="module" src="ui.js" defer></script>
+  <script type="module" src="cardeffects.js" defer></script>
+  <script type="module" src="run.js" defer></script>
+<script type="module" src="alpha_enemy.js" defer></script>
+
+
+
 </head>
 
-<body oncontextmenu="return false;" onload="Load()">
+<body oncontextmenu="return false;">
   <div class="container">
     <div class="debug">
-      <button id="button" onclick="Load()" style="padding: 10px">Load</button>
-      <button id="button" onclick="print()" style="padding: 10px">
-        Print all
+      <button id="button" onclick="load()" style="padding: 10px">
+        load
       </button>
-      <button id="button" onclick="shuffle(gamestate.deck)" style="padding: 10px">
-        Shuffle
-      </button>
-      <button id="button" onclick="startMulligan(gamestate.deck)" style="padding: 10px">
-        startMulligan
-      </button>
-      <button id="button" onclick="clearSearchBox()" style="padding: 10px">
-        clear search box
-      </button>
+      <button id="printAllButton">Print All</button>
+      <button id="drawOneButton">Draw 1</button>
+      <button id="searchButton">Search 1</button>
+      <button id="discardButton">Discard 1</button>
+      <button id="recoverButton">Recover 1</button>
+      <button id="shuffleButton">Shuffle 1</button>
+      <button id="endTurn">attack</button>
+      <button id="startGame">startGame</button>
+      <button id="startTurn">startTurn</button>
+
+
+
+
+
     </div>
     <div class="mini" id="miniclone">
       <div class="art"></div>
@@ -55,17 +69,32 @@
         <p class="cardtext"><b class="effect"></b></p>
       </div>
     </div>
+    <div class="enemy boardrow">
+      <div class="hand" id="enemyhand">
+      </div>
+      <div class="holder">
+        <div class="back row" id="enemybackrow"></div>
+        <div class="discard pile" id="enemydiscard"></div>
+      </div>
+      <div class="holder">
+        <div class="front row" id="enemyfrontrow"></div>
+        <div class="deck pile" id="enemydeck"></div>
+      </div>
+
+
+    </div>
     <div class="searchbox" id="searchbox"></div>
+
     <div class="boardrow">
       <div class="holder">
-        <div class="front row" id="frontrow" onclick="leftClick(this.id)" oncontextmenu="rightClick(this.id)"></div>
-        <div class="deck pile" id="deck" onclick="leftClick(this.id)" oncontextmenu="rightClick(this.id)"></div>
+        <div class="front row" id="frontrow"></div>
+        <div class="deck pile" id="deck"></div>
       </div>
       <div class="holder">
-        <div class="back row" id="backrow" onclick="leftClick(this.id)" oncontextmenu="rightClick(this.id)"></div>
-        <div class="discard pile" id="discard" onclick="leftClick(this.id)" oncontextmenu="rightClick(this.id)"></div>
+        <div class="back row" id="backrow"></div>
+        <div class="discard pile" id="discard"></div>
       </div>
-      <div class="hand" id="hand" onclick="leftClick(this.id)">
+      <div class="hand" id="hand">
 
       </div>
     </div>

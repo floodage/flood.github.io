@@ -29,19 +29,19 @@
 .blue,
 .blue .health,
 .soul.b, .blue .name-block .soul  {
-  background: url(art/blue_background.png);
+  background: url(/art/blue_background.png);
 }
 
 .green,
 .green .health,
 .soul.g, .green .name-block .soul {
-  background: url(art/green_background.png)
+  background: url(/art/green_background.png)
 }
 
 .red,
 .red .health,
 .soul.r, .red .name-block .soul {
-  background: url(art/red_background.png)
+  background: url(/art/red_background.png)
 }
 
 :root {
@@ -103,7 +103,7 @@ color: white;}
   margin-bottom: calc(var(--scale) * 0px);
   border: outset silver calc(var(--scale) * 10px);
   margin-top: calc(var(--scale) * 35px);
-  background: url(art/background.png);
+  background: url(/art/background.png);
   background-size: cover;
 }
 
@@ -159,9 +159,8 @@ color: white;}
   margin-bottom: calc(var(--scale) * 0px);
   display: block;
   height: calc(var(--scale) * 290px);
-  display: inline-block;
   background: rgb(255, 255, 255);
-  background: url(art/background.png);
+  background: url(/art/background.png);
   border: outset silver calc(var(--scale) * 10px);
   padding: 0px;
   width: -webkit-fill-available;

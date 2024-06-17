@@ -1,8 +1,8 @@
 
-import { gamestate, } from './alpha.js';
+import { gamestate, } from './gamestate.js';
 import { draw } from './effects.js'
 import { renderGamestate } from './render.js';
-import { targets } from './alpha.js';
+import { targets } from './targets.js';
  
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -22,9 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
     gamestate.board.forEach(item => {
       item.ready = true;
     });
+    renderGamestate(targets)
 
   });
-  renderGamestate(targets)
 
 });
 
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("startTurn").addEventListener("click", function () {
-    gamestate.task = "mulling"
+    renderGamestate(targets)
     draw(1)
   });
 });

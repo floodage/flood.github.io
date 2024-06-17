@@ -1,6 +1,6 @@
 
 
-export let enemyGamestate = {
+export let oppstate = {
     deck: 20,
     hand: 0,
     discard: [],
@@ -10,10 +10,10 @@ export let enemyGamestate = {
 
   createTest();
 function createTest(){
-    enemyGamestate.deck = 10;
-    enemyGamestate.hand = 2;
-    enemyGamestate.discard = [1,2]
-enemyGamestate.board = [{
+    oppstate.deck = 10;
+    oppstate.hand = 2;
+    oppstate.discard = [1,2]
+    oppstate.board = [{
     color: "g",
     position: "back",
     ready: false,
@@ -31,4 +31,8 @@ enemyGamestate.board = [{
     type: "Hero",
     value: 18
 }]    
+}
+
+export function renderOppstate(){
+    
 }

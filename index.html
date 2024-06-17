@@ -9,14 +9,14 @@
   <link rel="stylesheet" href="styles/cardstyles.css" />
   <link rel="stylesheet" href="styles/boardstyle.css" />
   <script type="module" src="load.js" defer></script>
-
-  <script type="module" src="alpha.js" defer></script>
+  <script type="module" src="gamestate.js" defer></script>
   <script type="module" src="effects.js" defer></script>
   <script type="module" src="render.js" defer></script>
   <script type="module" src="ui.js" defer></script>
   <script type="module" src="cardeffects.js" defer></script>
   <script type="module" src="run.js" defer></script>
-<script type="module" src="alpha_enemy.js" defer></script>
+  <script type="module" src="handle-click.js" defer></script>
+  <script type="module" src="oppstate.js" defer></script>
 
 
 
@@ -25,7 +25,7 @@
 <body oncontextmenu="return false;">
   <div class="container">
     <div class="debug">
-      <button id="button" onclick="load()" style="padding: 10px">
+      <button id="button" onclick="load()">
         load
       </button>
       <button id="printAllButton">Print All</button>
@@ -69,35 +69,42 @@
         <p class="cardtext"><b class="effect"></b></p>
       </div>
     </div>
-    <div class="enemy boardrow">
-      <div class="hand" id="enemyhand">
-      </div>
-      <div class="holder">
-        <div class="back row" id="enemybackrow"></div>
-        <div class="discard pile" id="enemydiscard"></div>
-      </div>
-      <div class="holder">
-        <div class="front row" id="enemyfrontrow"></div>
-        <div class="deck pile" id="enemydeck"></div>
-      </div>
-
-
-    </div>
-    <div class="searchbox" id="searchbox"></div>
-
     <div class="boardrow">
+      <div>
+       
+        <div class="holder">
+         
+          <div class="discard pile" id="oppdiscard"></div>
+          <div class="deck pile" id="oppdeck"></div>
+        </div>
+        <div class="holder">
+          <div class="row" id="opprow"></div>
+        </div>
+      </div>
+      <div>
+        <div class="hand" id="opphand">
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="searchbox" id="searchbox"></div>
+
+  <div class="boardrow">
+    <div>
       <div class="holder">
-        <div class="front row" id="frontrow"></div>
-        <div class="deck pile" id="deck"></div>
+        <div class="row" id="row"></div>
       </div>
       <div class="holder">
-        <div class="back row" id="backrow"></div>
+        <div class="deck pile" id="deck"></div>
         <div class="discard pile" id="discard"></div>
       </div>
+    </div>
+    <div>
       <div class="hand" id="hand">
-
       </div>
     </div>
+  </div>
   </div>
 </body>
 

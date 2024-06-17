@@ -1,8 +1,9 @@
 import { cards } from './load.js';
-import { gamestate, renderedClick, targets } from './alpha.js';
+import { renderedClick } from './handle-click.js';
 import { sortSearch } from './effects.js';
-
-import { enemyGamestate } from './alpha_enemy.js';
+import { targets } from './targets.js';
+import { gamestate } from './gamestate.js';
+import { oppstate } from './oppstate.js';
 
 function renderMiniCard(location, num) {
 
@@ -77,18 +78,14 @@ export function renderFullCard(num) {
   }
 }
 
-
-
-
 export function renderGamestate(array) {
   renderDeck()
   renderDiscard()
   renderHand()
-  renderRow()
-  console.log(gamestate)
-  console.log("enemy",enemyGamestate)
-  paintTarget(array)
   clearSearchBox()
+  renderRow()
+  console.log("gamestate",gamestate,"oppstate",oppstate)
+  paintTarget(array)
 
 }
 
@@ -121,9 +118,10 @@ function renderHand() {
   }
 }
 function paintTarget(array) {
-  for (let i = 0; i < array.length; i++) {
-    if (document.getElementById(array[i]) != undefined) {
-      document.getElementById(array[i]).classList.add("target");
+  for (let i = 0; i < targets.length; i++) {
+    if (document.getElementById(targets[i]) != undefined) {
+      document.getElementById(targets[i]).classList.add("target");
+      console.log(targets[i],"is a target")
     }
   }
 }
@@ -141,34 +139,30 @@ function renderDiscard() {
 
 
 function renderRow() {
-  document.getElementById("frontrow").innerHTML = "";
-  document.getElementById("backrow").innerHTML = "";
+  document.getElementById("row").innerHTML = "";
 
   for (var i = 0; i < gamestate.board.length; i++) {
 
+    const parent = document.getElementById("row");
+    const newChild = parent.appendChild(document.createElement("div"));
+    newChild.id = "board" + i;
+    newChild.classList.add("unit"+gamestate.board[i].position)
 
-    if (gamestate.board[i].position == "front") {
-      const parent = document.getElementById("frontrow");
-      const newChild = parent.appendChild(document.createElement("div"));
-      newChild.id = "board" + i;
-
-    } else if (gamestate.board[i].position == "back") {
-      const parent = document.getElementById("backrow");
-      const newChild = parent.appendChild(document.createElement("div"));
-      newChild.id = "board" + i;
-    }
     renderMiniCard("board" + i, gamestate.board[i].value);
     if (gamestate.board[i].souls.length != 0) {
-      for (var x = 0; x < gamestate.board[i].souls.length; x++) {
-        const parent = document.getElementById("board" + i)
+      const parent = document.getElementById("board" + i)
         const newChild = parent.appendChild(document.createElement("div"));
-        newChild.classList.add("soul", gamestate.board[i].souls[x], "attached")
+        newChild.id ="board"+i+"attached"
+      for (var x = 0; x < gamestate.board[i].souls.length; x++) {
+        const parent = document.getElementById("board" + i+"attached")
+        const newChild = parent.appendChild(document.createElement("div"));
+        newChild.classList.add("soul", gamestate.board[i].souls[x].color.charAt(0), "attached")
       }
 
 
     }
 
-    if (gamestate.board[i].ready == true) {
+    if (gamestate.board[i].ready == true && gamestate.board[i].type == "Soul") {
       document.getElementById("board" + [i]).children[0].children[0].children[0].classList.add("ready");
     }
 

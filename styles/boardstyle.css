@@ -18,6 +18,10 @@ body {
   width: 180px;
 }
 
+
+
+.boardrow > * {display: flex; }
+
 .searchbox {
   width: 1000px;
   height: 1100px;
@@ -31,15 +35,26 @@ body {
   width: 1000px;
   height: 800px;
     display: flex;
-  flex-direction: column;
-}
+    flex-direction: column;}
 
 .row {
   width: 800px;
-  height: 250px;
-  background: white;
+  height: 500px;
   display: flex;
+  background: rgb(182, 182, 235);
 
+}
+
+
+
+.row > * {
+  margin: 18px;
+}
+.unitfront{
+  margin-bottom: 100px;
+}
+.holder {
+  flex-direction: column;
 }
 
 .pile {
@@ -64,6 +79,9 @@ body {
   outline: 10px solid black;
   display: flex;
 }
+
+.row > * {display: flex; flex-direction: column-reverse;}
+.row > *> * {display: flex; flex-direction: column-reverse;}
 
 .holder {display: flex;}
 
@@ -143,8 +161,6 @@ margin-left: 10px;}
   outline: 10px solid green;
 }
 
-.enemy .holder {
-  flex-direction: row-reverse;
-}
+
 
 .searchbox {display: none;}

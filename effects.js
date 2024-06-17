@@ -1,6 +1,7 @@
-import { gamestate, targets} from './alpha.js';
+import { gamestate } from './gamestate.js';
 import { renderGamestate } from './render.js';
 import { renderSearchBox } from './render.js';
+import { targets } from './targets.js';
 
 function randomize(deck) {
   for (let i = deck.length - 1; i > 0; i--) {
@@ -48,6 +49,8 @@ export function sortSearch() {
   gamestate.deck.sort((a, b) => a - b);
 
 }
+
+
 
 //debug
 

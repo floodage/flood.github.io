@@ -1,32 +1,26 @@
 
 import { cards } from './load.js';
 import { renderGamestate } from './render.js';
+import { gamestate } from './gamestate.js';
+import { targets } from './targets.js';
+import { defineTargets } from './targets.js';
 
-export let gamestate = {
-  deck: [11, 11, 9, 9, 8, 5, 5, 4, 6, 7, 23, 33, 13, 19, 31, 32, 18, 35, 17, 16],
-  hand: [],
-  discard: [],
-  board: [],
-  limbo: [],
-  task: "",
-  cost: [],
-  turn: 0,
-  boardspace: 0,
-};
-
-export let targets = [];
+// take what is clicked capture all the information
+export function renderedClick(location, element, num) {
+  // we want remove where something is 
+  // move to where it needs to go 
+    let parsed = parseInputString(location);
+    let { zone, slot } = parsed;
 
 
-export function renderedClick(location, newChild) {
-  if (location.includes("board") && gamestate.task == "") { effectGamestate(newChild.parentElement.id, "move") }
-  if (location.includes("hand") && gamestate.task == "") { effectGamestate(newChild.parentElement.id, "board") }
-  if (location.includes("deck") && gamestate.task == "searching") { effectGamestate(newChild.parentElement.id, "hand") }
-  if (location.includes("hand") && gamestate.task == "discarding") { effectGamestate(newChild.parentElement.id, "discard") }
-  if (location.includes("discard") && gamestate.task == "recovering") { effectGamestate(newChild.parentElement.id, "hand") }
-  if (location.includes("hand") && gamestate.task == "shuffling") { effectGamestate(newChild.parentElement.id, "deck") }
-  if (location.includes("board") && gamestate.task == "sacrificing") { effectGamestate(newChild.parentElement.id, "sacrificing") }
-
-
+    if (zone == ("board") && gamestate.task == "") { effectGamestate(zone,slot,element.parentElement.id, "move") }
+    if (zone == ("hand") && gamestate.task == "") { effectGamestate(zone,slot,element.parentElement.id, "board") }
+    if (zone == ("deck") && gamestate.task == "searching") { effectGamestate(zone,slot,element.parentElement.id, "hand") }
+    if (zone == ("hand") && gamestate.task == "discarding") { effectGamestate(zone,slot,element.parentElement.id, "discard") }
+    if (zone == ("discard") && gamestate.task == "recovering") { effectGamestate(zone,slot,element.parentElement.id, "hand") }
+    if (zone == ("hand") && gamestate.task == "shuffling") { effectGamestate(zone,slot,element.parentElement.id, "deck") }
+    if (zone == ("board") && gamestate.task == "sacrificing") { effectGamestate(zone,slot,element.parentElement.id, "sacrifice") }
+  
 }
 
 function summonUnit(object) {
@@ -34,7 +28,6 @@ function summonUnit(object) {
   gamestate.task = "";
   gamestate.limbo = [];
   gamestate.cost = [];
-  targets = [];
 }
 
 function unitLimbo(id) {
@@ -55,23 +48,11 @@ function unitLimbo(id) {
   }
 }
 
-function defineTargets(zone, attribute, requirement) {
-  targets = [];
 
-  for (let i = 0; i < gamestate[zone].length; i++) {
-    if (gamestate[zone][i].ready == true) {
-      if (requirement[0] == (gamestate[zone][i][attribute]) || requirement[0] == "w") {
-        targets.push(zone + i)
-      }
-    }
-    renderGamestate(targets)
-  }
-}
+// thhis is just for moving cards in the gamestate
 
-export function effectGamestate(current, goal) {
-  let parsed = parseInputString(current);
-  let { word, number } = parsed;
-  if (goal == "board") {
+export function effectGamestate(word,number, element, destination){
+  if (destination == "board") {
     if (gamestate.board.length < gamestate.boardspace || cards[gamestate[word][number]].type == "Hero") {
       if (cards[gamestate[word][number]].type == "Soul") {
         unitLimbo(gamestate[word][number]);
@@ -94,19 +75,19 @@ export function effectGamestate(current, goal) {
     }
   }
 
-  if (goal == "hand") {
+  if (destination == "hand") {
     gamestate.hand.push(gamestate[word][number]);
     gamestate[word].splice(number, 1);
     gamestate.task = "";
   }
 
-  if (goal == "deck") {
+  if (destination == "deck") {
     gamestate.deck.push(gamestate[word][number]);
     gamestate[word].splice(number, 1);
     gamestate.task = "";
   }
 
-  if (goal == "move") {
+  if (destination == "move") {
     if (gamestate[word][number].position === "front") {
       gamestate[word][number].position = "back";
     } else if (gamestate[word][number].position === "back") {
@@ -114,31 +95,37 @@ export function effectGamestate(current, goal) {
     }
   }
 
-  if (goal == "discard") {
+  if (destination == "discard") {
     gamestate.discard.push(gamestate[word][number])
     gamestate[word].splice(number, 1)
     gamestate.task = "";
   }
 
-  if (goal == "sacrificing") {
+  if (destination == "sacrifice") {
+    if (gamestate[word][number].type == "Soul"){
     if (gamestate[word][number].color.charAt(0) == gamestate.cost[0] || gamestate.cost[0] == "w") {
-      gamestate.limbo.souls.push(gamestate[word][number].color.charAt(0)) //attach the soul
+      gamestate.limbo.souls.push(gamestate[word][number]) //attach the soul
       gamestate.cost.shift(); //remove from cost
       gamestate.board.splice(number, 1) //remove the soul from play
       defineTargets("board", "color", gamestate.cost)
     }
     if (gamestate.cost.length == 0) { summonUnit(gamestate.limbo) } //move unit from limbo to board}
   }
-  renderGamestate(targets);
+} else (
+  console.log("you can't sacrifice heroes")
+)
+renderGamestate(targets);
+
 }
+
 function parseInputString(inputString) {
   const regex = /^([a-zA-Z]+)(\d+)$/;
   const match = inputString.match(regex);
 
   if (match) {
     return {
-      word: match[1],
-      number: parseInt(match[2], 10)
+      zone: match[1],
+      slot: parseInt(match[2], 10)
     };
   }
   return null;

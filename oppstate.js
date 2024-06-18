@@ -24,15 +24,14 @@ function createTest(){
 },
 {
     color: "g",
-    position: "back",
+    position: "front",
     ready: false,
-    souls: ['g'],
+   
     status: "",
     type: "Hero",
     value: 18
 }]    
+oppstate.board[1].souls = [{value: 5, color: "g"},]
 }
 
-export function renderOppstate(){
-    
-}
+

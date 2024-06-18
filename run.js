@@ -2,7 +2,8 @@
 import { gamestate, } from './gamestate.js';
 import { draw } from './effects.js'
 import { renderGamestate } from './render.js';
-import { targets } from './targets.js';
+import { defineTargets, targets } from './targets.js';
+import { oppstate } from './oppstate.js';
  
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -45,3 +46,26 @@ document.addEventListener("DOMContentLoaded", function () {
     draw(1)
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("attackButton").addEventListener("click", function() {
+    console.log("entering attack mode")
+    gamestate.task = "attacking";
+    defineAttackTargets()
+    renderGamestate();
+    
+  });
+});
+
+function defineAttackTargets(){
+
+  for (let i = 0; i < oppstate.board.length; i++) {
+    if (oppstate.board[i].position == "front" || oppstate.board.every(item => item.position !== "front"))
+              targets.push("oppboard" + i)
+
+      }
+      console.log(targets)
+    }
+  
+

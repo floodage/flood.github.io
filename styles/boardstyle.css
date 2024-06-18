@@ -51,7 +51,7 @@ body {
   margin: 18px;
 }
 .unitfront{
-  margin-bottom: 100px;
+  margin-bottom: 200px;
 }
 .holder {
   flex-direction: column;
@@ -80,6 +80,11 @@ body {
   display: flex;
 }
 
+.cardback {
+  background: url(/art/cardback.png);
+  background-size: cover;
+}
+
 .row > * {display: flex; flex-direction: column-reverse;}
 .row > *> * {display: flex; flex-direction: column-reverse;}
 
@@ -89,7 +94,9 @@ body {
   display: none;
 }
 
-
+.holder  .mini  .soul-block {
+  display: none;
+}
 
 .mini {
   min-height: calc(var(--scale) * 250px);
@@ -164,3 +171,6 @@ margin-left: 10px;}
 
 
 .searchbox {display: none;}
+
+
+#opprow .unitback {margin-bottom: 250px;} 

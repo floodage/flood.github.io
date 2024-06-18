@@ -78,15 +78,70 @@ export function renderFullCard(num) {
   }
 }
 
-export function renderGamestate(array) {
+export function renderGamestate() {
   renderDeck()
   renderDiscard()
   renderHand()
   clearSearchBox()
   renderRow()
   console.log("gamestate",gamestate,"oppstate",oppstate)
-  paintTarget(array)
+  renderOppstate()
+  paintTarget()
+  
+}
 
+export function renderOppstate(){
+  renderOppHand()
+  renderOppDeck()
+  renderOppRow()
+}
+
+export function renderOppHand(){
+  const parent = document.getElementById("opphand");
+  parent.innerHTML = "";
+  for (var i = 0; i < oppstate.hand; i++) {
+    const newChild = parent.appendChild(document.createElement("div"));
+    newChild.id = "opphand" + i
+newChild.classList.add("cardback")  }
+ 
+}
+
+export function renderOppDeck(){
+  document.getElementById("oppdeck").innerHTML = oppstate.deck;
+
+}
+
+export function renderOppRow(){
+  document.getElementById("opprow").innerHTML = "";
+
+  for (var i = 0; i < oppstate.board.length; i++) {
+
+    const parent = document.getElementById("opprow");
+    const newChild = parent.appendChild(document.createElement("div"));
+    newChild.id = "oppboard" + i;
+    newChild.classList.add("unit"+oppstate.board[i].position)
+
+    renderMiniCard("oppboard" + i, oppstate.board[i].value);
+    if (oppstate.board[i].souls.length != 0) {
+      const parent = document.getElementById("oppboard" + i)
+        const newChild = parent.appendChild(document.createElement("div"));
+        newChild.id ="oppboard"+i+"attached"
+
+      for (var x = 0; x < oppstate.board[i].souls.length; x++) {
+        const parent = document.getElementById("oppboard" + i+"attached")
+        const newChild = parent.appendChild(document.createElement("div"));
+        newChild.classList.add("soul", oppstate.board[i].souls[x].color.charAt(0), "attached")
+      }
+
+
+    }
+
+    if (oppstate.board[i].ready == true && oppstate.board[i].type == "Soul") {
+      document.getElementById("oppboard" + [i]).children[0].children[0].children[0].classList.add("ready");
+    }
+
+
+  }
 }
 
 export function clearSearchBox() {
@@ -117,7 +172,7 @@ function renderHand() {
     renderMiniCard(newChild.id, gamestate.hand[i])
   }
 }
-function paintTarget(array) {
+function paintTarget() {
   for (let i = 0; i < targets.length; i++) {
     if (document.getElementById(targets[i]) != undefined) {
       document.getElementById(targets[i]).classList.add("target");
@@ -168,9 +223,4 @@ function renderRow() {
 
 
   }
-}
-
-function renderReady(c) {
-
-
 }

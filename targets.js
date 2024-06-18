@@ -13,6 +13,6 @@ export function defineTargets(zone, attribute, requirement) {
 
         }
       }
-      renderGamestate(targets)
+      renderGamestate()
     }
   }

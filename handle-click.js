@@ -20,7 +20,7 @@ export function renderedClick(location, element, num) {
     if (zone == ("discard") && gamestate.task == "recovering") { effectGamestate(zone,slot,element.parentElement.id, "hand") }
     if (zone == ("hand") && gamestate.task == "shuffling") { effectGamestate(zone,slot,element.parentElement.id, "deck") }
     if (zone == ("board") && gamestate.task == "sacrificing") { effectGamestate(zone,slot,element.parentElement.id, "sacrifice") }
-  
+    if (zone == ("oppboard") && gamestate.task == "attacking" ){console.log("target for attack",zone,slot)}
 }
 
 function summonUnit(object) {
@@ -105,15 +105,18 @@ export function effectGamestate(word,number, element, destination){
     if (gamestate[word][number].type == "Soul"){
     if (gamestate[word][number].color.charAt(0) == gamestate.cost[0] || gamestate.cost[0] == "w") {
       gamestate.limbo.souls.push(gamestate[word][number]) //attach the soul
+       gamestate.limbo.souls.position = undefined;
+       gamestate.limbo.souls.status = undefined;
+       gamestate.limbo.souls.ready = undefined;
       gamestate.cost.shift(); //remove from cost
       gamestate.board.splice(number, 1) //remove the soul from play
       defineTargets("board", "color", gamestate.cost)
     }
     if (gamestate.cost.length == 0) { summonUnit(gamestate.limbo) } //move unit from limbo to board}
   }
-} else (
+} else {
   console.log("you can't sacrifice heroes")
-)
+}
 renderGamestate(targets);
 
 }

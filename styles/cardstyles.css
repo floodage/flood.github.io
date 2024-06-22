@@ -99,7 +99,6 @@ color: white;}
   display: flex;
   justify-content: space-between;
   margin: calc(var(--scale) * 30px);
-  margin-top: calc(var(--scale) * 0px);
   margin-bottom: calc(var(--scale) * 0px);
   border: outset silver calc(var(--scale) * 10px);
   margin-top: calc(var(--scale) * 35px);
@@ -186,4 +185,4 @@ color: white;}
   display: none;
 }
 
-.Hero .name-block .soul {display: none;}
+.Lord .name-block .soul {display: none;}

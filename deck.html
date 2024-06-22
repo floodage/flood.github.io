@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SOUL</title>
+    <link rel="stylesheet" href="styles/cardstyles.css" />
+    <link rel="stylesheet" href="styles/boardstyle.css" />
+    
+    <script type="module" src="load.js" defer></script>
+    <script type="module" src="deck-builder.js" defer></script>
+
+
+</head>
+
+<body oncontextmenu="return false;">
+
+    <div class="container">
+        <div class="debugMenu">
+       <button id="start">Start</button>
+
+            <input id="deckInput" type="text">
+            <div id="deckCount">0</div>
+            <button id="import">import</button>
+
+        </div>
+        <div class="mini" id="miniclone">
+            <div class="name-block">
+                <p class="name"></p>
+                <div class="soul"></div>
+            </div>
+            <div class="art"></div>
+
+            <div class="soul-block">
+                <div class="soul"></div>
+                <div class="soul"></div>
+            </div>
+            <b class="effect"></b>
+        </div>
+        <div class="card" id="clone">
+            <div class="cardbg"></div>
+            <div class="name-block">
+                <p class="name"></p>
+                <div class="soul"></div>
+            </div>
+            <div class="soul-block">
+                <div class="soul"></div>
+                <div class="soul"></div>
+            </div>
+            <div class="art"></div>
+
+            <div class="text-block">
+                <p class="cardtext"><b class="effect"></b></p>
+            </div>
+        </div>
+        <div class="searchbox" id="deckbox"></div>
+        <div class="searchbox" id="cardbox"></div>
+    </div>
+    <div id="cardspot"></div>
+</body>
+
+</html>

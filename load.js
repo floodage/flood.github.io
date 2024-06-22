@@ -1,11 +1,12 @@
 import { renderFullCard } from "./render.js";
 export let cards = [];
-
+var url = "cards.json"; 
 var url =
   "https://script.google.com/macros/s/AKfycbwjSmI_tuT9g_spEjwaJCwNlj5AgXrHHIp-525iN6VJFyCbXGtAf4YtiqejxZbbnmR63g/exec";
   let totalCards = 36; //total cards in the set
   let css = []; // css to format all off the cards
-  var url = "cards.json"; 
+
+
 
   export function load() {
     fetch(url)
@@ -21,11 +22,11 @@ var url =
         let s = document.createElement("style");
         s.innerHTML = css.join(" ");
         document.getElementsByTagName("head")[0].appendChild(s);
-        document.getElementById("button").remove();
         console.log(
           "%c🔮Soul Database Downloaded",
           "background: teal; color: white; font-size: 1.5rem;"
         );
+        document.getElementById("debugMenu").style.display = "flex";
       });
   }
   document.addEventListener("DOMContentLoaded", function() {
@@ -45,8 +46,13 @@ export function printAll() {
     document.getElementById("clone").remove();
   }
   
-  document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("printAllButton").addEventListener("click", function() {
-      printAll();
+
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("printAllButton").addEventListener("click", function () {
+      
+      printAll()
+      
     });
   });

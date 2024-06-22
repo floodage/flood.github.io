@@ -1,14 +1,10 @@
 import { cards } from './load.js';
 import { renderedClick } from './handle-click.js';
-import { sortSearch } from './effects.js';
-import { targets } from './targets.js';
-import { gamestate } from './gamestate.js';
-import { oppstate } from './oppstate.js';
+import { gamestate } from './handle-click.js';
+import { current_card} from './handle-click.js'
 
 function renderMiniCard(location, num) {
-
   const parent = document.getElementById(location);
-  parent.innerHTML = "";
   const newChild = parent.appendChild(document.createElement("div"));
   newChild.id = num;
   newChild.onclick = function () {
@@ -17,13 +13,13 @@ function renderMiniCard(location, num) {
 
   newChild.addEventListener('contextmenu', function (event) {
     event.preventDefault(); // Prevent the default context menu from appearing
-    document.getElementById("searchbox").innerHTML = "";
+    document.getElementById("cardspot").innerHTML = "";
 
     var clone = document.getElementById("clone").cloneNode(true);
     clone.id = "";
     clone.classList.add("card" + num, cards[num]["type"], cards[num]["color"]);
 
-    document.getElementById("searchbox").appendChild(clone);
+    document.getElementById("cardspot").appendChild(clone);
     renderFullCard(newChild.id);
   });
 
@@ -83,70 +79,13 @@ export function renderGamestate() {
   renderDiscard()
   renderHand()
   clearSearchBox()
-  renderRow()
-  console.log("gamestate",gamestate,"oppstate",oppstate)
-  renderOppstate()
-  paintTarget()
+  renderBoard()
+  console.log("gamestate",gamestate, current_card)
   
-}
-
-export function renderOppstate(){
-  renderOppHand()
-  renderOppDeck()
-  renderOppRow()
-}
-
-export function renderOppHand(){
-  const parent = document.getElementById("opphand");
-  parent.innerHTML = "";
-  for (var i = 0; i < oppstate.hand; i++) {
-    const newChild = parent.appendChild(document.createElement("div"));
-    newChild.id = "opphand" + i
-newChild.classList.add("cardback")  }
- 
-}
-
-export function renderOppDeck(){
-  document.getElementById("oppdeck").innerHTML = oppstate.deck;
-
-}
-
-export function renderOppRow(){
-  document.getElementById("opprow").innerHTML = "";
-
-  for (var i = 0; i < oppstate.board.length; i++) {
-
-    const parent = document.getElementById("opprow");
-    const newChild = parent.appendChild(document.createElement("div"));
-    newChild.id = "oppboard" + i;
-    newChild.classList.add("unit"+oppstate.board[i].position)
-
-    renderMiniCard("oppboard" + i, oppstate.board[i].value);
-    if (oppstate.board[i].souls.length != 0) {
-      const parent = document.getElementById("oppboard" + i)
-        const newChild = parent.appendChild(document.createElement("div"));
-        newChild.id ="oppboard"+i+"attached"
-
-      for (var x = 0; x < oppstate.board[i].souls.length; x++) {
-        const parent = document.getElementById("oppboard" + i+"attached")
-        const newChild = parent.appendChild(document.createElement("div"));
-        newChild.classList.add("soul", oppstate.board[i].souls[x].color.charAt(0), "attached")
-      }
-
-
-    }
-
-    if (oppstate.board[i].ready == true && oppstate.board[i].type == "Soul") {
-      document.getElementById("oppboard" + [i]).children[0].children[0].children[0].classList.add("ready");
-    }
-
-
-  }
 }
 
 export function clearSearchBox() {
   document.getElementById("searchbox").innerHTML = "";
-  document.getElementById("searchbox").style.display = "none"
 }
 
 export function renderSearchBox(location, type) {
@@ -172,15 +111,6 @@ function renderHand() {
     renderMiniCard(newChild.id, gamestate.hand[i])
   }
 }
-function paintTarget() {
-  for (let i = 0; i < targets.length; i++) {
-    if (document.getElementById(targets[i]) != undefined) {
-      document.getElementById(targets[i]).classList.add("target");
-      console.log(targets[i],"is a target")
-    }
-  }
-}
-
 
 function renderDeck() {
   document.getElementById("deck").innerHTML = gamestate.deck.length;
@@ -193,34 +123,30 @@ function renderDiscard() {
 
 
 
-function renderRow() {
-  document.getElementById("row").innerHTML = "";
-
+function renderBoard() {
+  document.getElementById("board").innerHTML = "";
   for (var i = 0; i < gamestate.board.length; i++) {
+    //console.log("gamestate.boardi0",gamestate.board[i][0])
 
-    const parent = document.getElementById("row");
-    const newChild = parent.appendChild(document.createElement("div"));
-    newChild.id = "board" + i;
-    newChild.classList.add("unit"+gamestate.board[i].position)
-
-    renderMiniCard("board" + i, gamestate.board[i].value);
-    if (gamestate.board[i].souls.length != 0) {
-      const parent = document.getElementById("board" + i)
-        const newChild = parent.appendChild(document.createElement("div"));
-        newChild.id ="board"+i+"attached"
-      for (var x = 0; x < gamestate.board[i].souls.length; x++) {
-        const parent = document.getElementById("board" + i+"attached")
-        const newChild = parent.appendChild(document.createElement("div"));
-        newChild.classList.add("soul", gamestate.board[i].souls[x].color.charAt(0), "attached")
-      }
-
-
+    if (gamestate.board[i][0] !=undefined){
+      const parent = document.getElementById("board");
+      const newChild = parent.appendChild(document.createElement("div"));
+      newChild.id = "board"+i
+        for (var x = 0; x < gamestate.board[i].length; x++){
+        renderMiniCard("board"+i,gamestate.board[i][x]);
+        }
+       
     }
-
-    if (gamestate.board[i].ready == true && gamestate.board[i].type == "Soul") {
-      document.getElementById("board" + [i]).children[0].children[0].children[0].classList.add("ready");
-    }
-
+ 
 
   }
+   
+
+  }
+
+
+
+function sortSearch() {
+  gamestate.deck.sort((a, b) => a - b);
+
 }

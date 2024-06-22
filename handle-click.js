@@ -1,125 +1,57 @@
 
 import { cards } from './load.js';
-import { renderGamestate } from './render.js';
-import { gamestate } from './gamestate.js';
-import { targets } from './targets.js';
-import { defineTargets } from './targets.js';
+import { renderFullCard, renderGamestate } from './render.js';
+import { renderSearchBox } from './render.js';
+export var gamestate = {
+  deck: [],
+  hand: [],
+  discard: [],
+  board:  [
+    [],
+    [],
+    [],
+    []
+]
+};
 
-// take what is clicked capture all the information
+function removeOneInstance(array, value) {
+  const index = array.indexOf(value);
+  if (index !== -1) {
+      array.splice(index, 1);
+  }
+}
+export var current_card = undefined
+
 export function renderedClick(location, element, num) {
-  // we want remove where something is 
-  // move to where it needs to go 
-    let parsed = parseInputString(location);
-    let { zone, slot } = parsed;
+  let parsed = parseInputString(location);
+  let { zone, slot } = parsed;
+  if (current_card == undefined && zone == "board"){
+    console.log("handle click",gamestate.board[slot],num)
+    current_card = num;
+    removeOneInstance(gamestate.board[slot], num)
 
 
-    if (zone == ("board") && gamestate.task == "") { effectGamestate(zone,slot,element.parentElement.id, "move") }
-    if (zone == ("hand") && gamestate.task == "") { effectGamestate(zone,slot,element.parentElement.id, "board") }
-    if (zone == ("deck") && gamestate.task == "searching") { effectGamestate(zone,slot,element.parentElement.id, "hand") }
-    if (zone == ("hand") && gamestate.task == "discarding") { effectGamestate(zone,slot,element.parentElement.id, "discard") }
-    if (zone == ("discard") && gamestate.task == "recovering") { effectGamestate(zone,slot,element.parentElement.id, "hand") }
-    if (zone == ("hand") && gamestate.task == "shuffling") { effectGamestate(zone,slot,element.parentElement.id, "deck") }
-    if (zone == ("board") && gamestate.task == "sacrificing") { effectGamestate(zone,slot,element.parentElement.id, "sacrifice") }
-    if (zone == ("oppboard") && gamestate.task == "attacking" ){console.log("target for attack",zone,slot)}
-}
 
-function summonUnit(object) {
-  gamestate.board.push(object);
-  gamestate.task = "";
-  gamestate.limbo = [];
-  gamestate.cost = [];
-}
 
-function unitLimbo(id) {
-  var newItem = { value: id };
-  newItem.position = "back";
-  newItem.color = cards[id].color.charAt(0);
-  newItem.status = "";
-  newItem.ready = false;
-  newItem.type = cards[id].type;
-  newItem.souls = [];
-  gamestate.limbo = newItem
-  if (cards[id].type == "Soul") {
-    summonUnit(gamestate.limbo)
-  } else if (cards[id].type == "Hero") {
-    gamestate.task = "sacrificing";
-    gamestate.cost = cards[id].cost.split("");
-    defineTargets("board", "color", gamestate.cost)
+
+  
+  } else if (current_card == undefined) {
+    current_card = num;
+    renderFullCard(num)
+    gamestate[zone].splice(slot, 1);
+
+  } else if (current_card != undefined && zone == "board"){
+    console.log(gamestate.board[slot], "add to pile")
+    gamestate.board[slot].push(current_card)
+    current_card = undefined;
+    
   }
+
+  renderGamestate()
+  event.stopPropagation();
 }
 
 
-// thhis is just for moving cards in the gamestate
-
-export function effectGamestate(word,number, element, destination){
-  if (destination == "board") {
-    if (gamestate.board.length < gamestate.boardspace || cards[gamestate[word][number]].type == "Hero") {
-      if (cards[gamestate[word][number]].type == "Soul") {
-        unitLimbo(gamestate[word][number]);
-        gamestate[word].splice(number, 1);
-
-      } else if (cards[gamestate[word][number]].type == "Hero") {
-        let readySouls = gamestate.board.filter(item => item.type === "Soul" && item.ready == true).map(item => item.color)
-        let requiredCost = (cards[gamestate[word][number]].cost).split("").filter(element => element !== "w")
-        const canFulfillRequest = (req, ready) => req.every(item => req.filter(x => x === item).length <= ready.filter(x => x === item).length);
-
-        if (readySouls.length >= (cards[gamestate[word][number]].cost).split("").length && canFulfillRequest(requiredCost,readySouls)) {
-          unitLimbo(gamestate[word][number]);
-          gamestate[word].splice(number, 1);
-        } else {
-          console.log("you can't pay that soul cost")
-        }
-      }
-    } else {
-      console.log("full")
-    }
-  }
-
-  if (destination == "hand") {
-    gamestate.hand.push(gamestate[word][number]);
-    gamestate[word].splice(number, 1);
-    gamestate.task = "";
-  }
-
-  if (destination == "deck") {
-    gamestate.deck.push(gamestate[word][number]);
-    gamestate[word].splice(number, 1);
-    gamestate.task = "";
-  }
-
-  if (destination == "move") {
-    if (gamestate[word][number].position === "front") {
-      gamestate[word][number].position = "back";
-    } else if (gamestate[word][number].position === "back") {
-      gamestate[word][number].position = "front";
-    }
-  }
-
-  if (destination == "discard") {
-    gamestate.discard.push(gamestate[word][number])
-    gamestate[word].splice(number, 1)
-    gamestate.task = "";
-  }
-
-  if (destination == "sacrifice") {
-    if (gamestate[word][number].type == "Soul"){
-    if (gamestate[word][number].color.charAt(0) == gamestate.cost[0] || gamestate.cost[0] == "w") {
-      gamestate.limbo.souls.push(gamestate[word][number]) //attach the soul
-       gamestate.limbo.souls.position = undefined;
-       gamestate.limbo.souls.status = undefined;
-       gamestate.limbo.souls.ready = undefined;
-      gamestate.cost.shift(); //remove from cost
-      gamestate.board.splice(number, 1) //remove the soul from play
-      defineTargets("board", "color", gamestate.cost)
-    }
-    if (gamestate.cost.length == 0) { summonUnit(gamestate.limbo) } //move unit from limbo to board}
-  }
-} else {
-  console.log("you can't sacrifice heroes")
-}
-renderGamestate(targets);
-
-}
 
 function parseInputString(inputString) {
   const regex = /^([a-zA-Z]+)(\d+)$/;
@@ -133,3 +65,121 @@ function parseInputString(inputString) {
   }
   return null;
 }
+
+
+function randomize(deck) {
+  for (let i = deck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [deck[i], deck[j]] = [deck[j], deck[i]];
+  }
+  return deck;
+}
+
+var decklist = [11, 11, 9, 9, 8, 5, 5, 4, 6, 7, 23, 33, 13, 19, 31, 32, 18, 35, 17, 16];
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("deck").addEventListener("contextmenu", function () {
+    renderSearchBox("deck", "deck");
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("deck").addEventListener("click", function () {
+    if (current_card == undefined) {
+      current_card = gamestate.deck.shift();
+      renderGamestate()
+
+    } else if (current_card != undefined) {
+      gamestate.deck.push(current_card);
+      current_card = undefined;
+      randomize(gamestate.deck)
+      renderGamestate()
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("discard").addEventListener("contextmenu", function () {
+    renderSearchBox("discard", "discard");
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("discard").addEventListener("click", function () {
+    if (current_card != undefined) {
+      gamestate.discard.push(current_card);
+      current_card = undefined;
+      renderGamestate()
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("board").addEventListener("click", function () {
+
+    if (current_card != undefined) {
+      for (let i = 0; i < 4; i++) {
+        if (gamestate.board[i].length == 0) {
+          gamestate.board[i].push(current_card);
+          current_card = undefined;
+          renderGamestate()
+
+            break; // Exit the loop after adding the item to the next array
+        }
+      }
+      
+
+    } else if (current_card == undefined) {
+      console.log()
+    }
+  });
+});
+
+
+
+
+export function draw(x) {
+  for (let i = 0; i < x; i++) {
+    if (gamestate.hand.length < 5) {
+      randomize(gamestate.deck);
+      gamestate.hand.push(gamestate.deck.shift());
+      renderGamestate();
+    }
+  }
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("getDeck").addEventListener("click", function () {
+    
+    gamestate.deck = document.getElementById('deckInput').value.split(',')
+    draw(5)
+    document.getElementById("getDeck").style.display= "none";
+    
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("hand").addEventListener("click", function () {
+    if (current_card != undefined) {
+      gamestate.hand.push(current_card);
+      current_card = undefined;
+    }
+    renderGamestate()
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("themeDeck1").addEventListener("click", function () {
+    
+    document.getElementById('deckInput').value = "3,2,9,22,33,1,14,3,11,34,17,13,8,35,8,2,9,27,11,10"
+    document.getElementById("themeDeck1").style.display= "none";
+    
+  });
+});
+
+
+

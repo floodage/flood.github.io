@@ -4,7 +4,7 @@ div {font-size: 100px;}
 }
 
 button {
-  font-size: calc(var(--scale) * 100px);
+  font-size: calc(var(--scale) * 80px);
 }
 
 body {
@@ -14,11 +14,11 @@ body {
   flex-wrap: wrap;
 }
 
-.row > div, .hand > div, #searchbox > div {
+.board > div, .hand > div, #searchbox > div {
   width: 180px;
 }
 
-
+.debug {display: none;}
 
 .boardrow > * {display: flex; }
 
@@ -29,6 +29,8 @@ body {
   background: lightgrey;
   flex-direction: row;
     flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
 }
 .boardrow {
   background: lightgrey;
@@ -37,18 +39,22 @@ body {
     display: flex;
     flex-direction: column;}
 
-.row {
+.board {
   width: 800px;
-  height: 500px;
+  height: 250px;
   display: flex;
   background: rgb(182, 182, 235);
+  margin-top: 250px;
 
 }
+.board > * > * {
+  margin-top: -150px;
+}
 
-
-
-.row > * {
+.board > * {
   margin: 18px;
+  display: flex; 
+  flex-direction: column;
 }
 .unitfront{
   margin-bottom: 200px;
@@ -85,8 +91,7 @@ body {
   background-size: cover;
 }
 
-.row > * {display: flex; flex-direction: column-reverse;}
-.row > *> * {display: flex; flex-direction: column-reverse;}
+.board > *> * {display: flex; flex-direction: column-reverse;}
 
 .holder {display: flex;}
 
@@ -94,7 +99,7 @@ body {
   display: none;
 }
 
-.holder  .mini  .soul-block {
+  .mini  .soul::before {
   display: none;
 }
 
@@ -139,7 +144,7 @@ body {
 
 }
 
-.mini .soul::before {display: none;}
+#cardspot {display: flex;}
 
 .mini .effect {font-size: 20px;
 position: absolute;
@@ -152,25 +157,23 @@ margin-left: 10px;}
 .mini .soul.b {background: url(/art/blue_background.png);}
 .mini .soul.g {background: url(/art/green_background.png);}
 
-.target {
-  background-color: red;;
-}
-
-.soul.attached {
-  height: calc(var(--scale)* 20px);
-  width: calc(var(--scale)* 20px);
+.mini .name {
+  font-size: 20px;
   border: none;
 }
-
-.soul.attached::before {display: none;}
-
-.ready {
-  outline: 10px solid green;
+.mini .name-block{
+  background: white;
+  border: 0px;
+  box-shadow: none;
+  position: absolute;
+  z-index: 10;
+  border-radius: 0;
+  margin-top: 0px;
+  margin-left: 0px;
+  padding: 0px;
 }
 
+.mini .soul-block {
+  margin-top: 40px;
+}
 
-
-.searchbox {display: none;}
-
-
-#opprow .unitback {margin-bottom: 250px;} 

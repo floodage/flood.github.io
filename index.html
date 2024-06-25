@@ -8,42 +8,33 @@
 
   <link rel="stylesheet" href="styles/cardstyles.css" />
   <link rel="stylesheet" href="styles/boardstyle.css" />
+  
+
   <script type="module" src="load.js" defer></script>
-
-  <script type="module" src="alpha.js" defer></script>
-  <script type="module" src="effects.js" defer></script>
   <script type="module" src="render.js" defer></script>
-  <script type="module" src="ui.js" defer></script>
-  <script type="module" src="cardeffects.js" defer></script>
-  <script type="module" src="run.js" defer></script>
-<script type="module" src="alpha_enemy.js" defer></script>
-
+  <script type="module" src="handle-click.js" defer></script>
 
 
 </head>
 
 <body oncontextmenu="return false;">
+  
   <div class="container">
-    <div class="debug">
-      <button id="button" onclick="load()" style="padding: 10px">
-        load
-      </button>
+    <div class="debug" id="debugMenu">
+     
       <button id="printAllButton">Print All</button>
-      <button id="drawOneButton">Draw 1</button>
-      <button id="searchButton">Search 1</button>
-      <button id="discardButton">Discard 1</button>
-      <button id="recoverButton">Recover 1</button>
-      <button id="shuffleButton">Shuffle 1</button>
-      <button id="endTurn">attack</button>
-      <button id="startGame">startGame</button>
-      <button id="startTurn">startTurn</button>
+      <button id="getDeck">Load Deck</button>
+      <button id="themeDeck1">Red/Blue</button>
 
-
-
+      <input id="deckInput" type="text">
 
 
     </div>
     <div class="mini" id="miniclone">
+      <div class="name-block">
+        <p class="name"></p>
+        <div class="soul"></div>
+      </div>
       <div class="art"></div>
 
       <div class="soul-block">
@@ -69,36 +60,26 @@
         <p class="cardtext"><b class="effect"></b></p>
       </div>
     </div>
-    <div class="enemy boardrow">
-      <div class="hand" id="enemyhand">
+  <div class="searchbox" id="searchbox"></div>
+
+  <div class="boardrow">
+    <div>
+      <div class="holder">
+        <div class="board" id="board"></div>
+        
       </div>
       <div class="holder">
-        <div class="back row" id="enemybackrow"></div>
-        <div class="discard pile" id="enemydiscard"></div>
-      </div>
-      <div class="holder">
-        <div class="front row" id="enemyfrontrow"></div>
-        <div class="deck pile" id="enemydeck"></div>
-      </div>
-
-
-    </div>
-    <div class="searchbox" id="searchbox"></div>
-
-    <div class="boardrow">
-      <div class="holder">
-        <div class="front row" id="frontrow"></div>
         <div class="deck pile" id="deck"></div>
-      </div>
-      <div class="holder">
-        <div class="back row" id="backrow"></div>
         <div class="discard pile" id="discard"></div>
       </div>
+    </div>
+    <div>
       <div class="hand" id="hand">
-
       </div>
     </div>
   </div>
+  </div>
+  <div id="cardspot"></div>
 </body>
 
 </html>

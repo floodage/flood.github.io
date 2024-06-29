@@ -3,7 +3,7 @@ export let cards = [];
 var url = "cards.json"; 
 var url =
   "https://script.google.com/macros/s/AKfycbwjSmI_tuT9g_spEjwaJCwNlj5AgXrHHIp-525iN6VJFyCbXGtAf4YtiqejxZbbnmR63g/exec";
-  let totalCards = 36; //total cards in the set
+  let totalCards = 72; //total cards in the set
   let css = []; // css to format all off the cards
 
 
@@ -28,6 +28,7 @@ var url =
         );
         document.getElementById("debugMenu").style.display = "flex";
       });
+      console.log(cards)
   }
   document.addEventListener("DOMContentLoaded", function() {
     load();
@@ -42,8 +43,7 @@ export function printAll() {
       renderFullCard(num);
   
     }
-  
-    document.getElementById("clone").remove();
+    document.getElementById("gameContainer").remove();
   }
   
 

@@ -18,7 +18,12 @@
 
 .soul.g::before,
 .green .name-block .soul::before {
-  content: "土";
+  content: "山";
+}
+
+.soul.p::before,
+.purple .name-block .soul::before {
+  content: "暝";
 }
 
 .soul.w::before {
@@ -28,20 +33,26 @@
 
 .blue,
 .blue .health,
-.soul.b, .blue .name-block .soul  {
+.soul.b, .blue .name-block .soul, .blue .name-block  {
   background: url(/art/blue_background.png);
 }
 
 .green,
 .green .health,
-.soul.g, .green .name-block .soul {
+.soul.g, .green .name-block .soul, .green .name-block {
   background: url(/art/green_background.png)
 }
 
 .red,
 .red .health,
-.soul.r, .red .name-block .soul {
+.soul.r, .red .name-block .soul, .red .name-block {
   background: url(/art/red_background.png)
+}
+
+.purple,
+.purple .health,
+.soul.p, .purple .name-block .soul, .purple .name-block {
+  background: url(/art/purple_background.png)
 }
 
 :root {
@@ -62,77 +73,93 @@ color: white;}
 
 .entry { 
   border: outset rgb(255, 193, 77) calc(var(--scale) * 5px);
-
   --tw-gradient-from: #ebaa1f;
   --tw-gradient-stops: var(--tw-gradient-from), #ff7b00, var(--tw-gradient-to);
   --tw-gradient-to: #da821e;
   border-radius: calc(var(--scale) * 0px) calc(var(--scale) * 40px) calc(var(--scale) * 40px) calc(var(--scale) * 0px);
+  padding-right: 10px;
 }
 
 .ability {
   border: outset #b872ff calc(var(--scale) * 5px);
-
   --tw-gradient-from: #7b229e;
   --tw-gradient-stops: var(--tw-gradient-from), #b60cfa, var(--tw-gradient-to);
   --tw-gradient-to: #831bac;
   border-radius: calc(var(--scale) * 50px) calc(var(--scale) * 0px) calc(var(--scale) * 50px) calc(var(--scale) * 0px);
 }
 
-.soul::before {
-  margin-left: calc(var(--scale) * 10px);
+.aura {
+  border: outset #72ffbd calc(var(--scale) * 5px);
+  --tw-gradient-from: #43cf89;
+  --tw-gradient-stops: var(--tw-gradient-from), #0cfa6f, var(--tw-gradient-to);
+  --tw-gradient-to: #34d873;
+  border-radius: calc(var(--scale) * 50px) calc(var(--scale) * 50px) calc(var(--scale) * 0px) calc(var(--scale) * 0px);
 }
+
+
 
 .name-block, .art, .text-block {box-shadow: 0 8px 8px rgba(0, 0, 0, .5), 0 0 0 3px #3f3f46, 0 0 0 5px #a1a1a1;   border-width: 2px;
 }
 .card {
-  min-height: calc(var(--scale) * 1190px);
-  max-height: calc(var(--scale) * 1190px);
-  min-width: calc(var(--scale) * 816px);
-  max-width: calc(var(--scale) * 816px);
+  min-height: calc(var(--scale) * 1144px);
+  max-height: calc(var(--scale) * 1144px);
+  min-width: calc(var(--scale) * 819px);
+  max-width: calc(var(--scale) * 819px);
   box-sizing: border-box;
   margin: calc(var(--scale) * 106.8px);
   margin-left: calc(var(--scale) * 87px);
-  outline: 35px solid white;
+  border: calc(var(--scale) * 70px) ridge white;
+  border-radius: 10px;
 }
 
 .name-block {
   display: flex;
   justify-content: space-between;
-  margin: calc(var(--scale) * 30px);
+  margin: calc(var(--scale) * 0px);
   margin-bottom: calc(var(--scale) * 0px);
   border: outset silver calc(var(--scale) * 10px);
-  margin-top: calc(var(--scale) * 35px);
-  background: url(/art/background.png);
-  background-size: cover;
+  color:white;
+  background-size: cover!important;
 }
 
+.name-block .soul {
+  position: absolute;
+  margin-left:450px;
+  margin-top: 0px;
+}
 .name {
-  font-size: calc(var(--scale) * 80px);
+  font-size: calc(var(--scale) * 70px);
   padding: calc(var(--scale) * 8px);
 }
 
+.name::before {
+  text-shadow: #000 1px 0 10px;}
+
 .soul-block {
   position: absolute;
-  margin-left: calc(var(--scale) * -7px);
+  margin-left: calc(var(--scale) * -40px);
   margin-top: calc(var(--scale) * 10px);
 }
 
 .soul {
-  border: outset lightgrey calc(var(--scale) * 5px);
-  height: calc(var(--scale) * 80px);
-  width: calc(var(--scale) * 80px);
+  border: outset rgb(255, 255, 255) calc(var(--scale) * 12px);
+  height: calc(var(--scale) * 100px);
+  width: calc(var(--scale) * 100px);
   border-radius: calc(var(--scale) * 100px);
   margin: calc(var(--scale) * 15px);
   color: white;
   font-size: calc(var(--scale) * 50px);
-  background: grey;
-  font-weight: bold;
+  background: rgb(88, 88, 88);
 
 }
 
+.soul::before {
+  margin-left: calc(var(--scale) * 15px);
+}
+
 .art {
-  height: calc(var(--scale) * 700px);
-  margin: calc(var(--scale) * 30px);
+  height: calc(var(--scale) * 600px);
+  margin: calc(var(--scale) * 0px);
   background-size: cover !important;
   margin-top: calc(var(--scale) * 00px);
   margin-bottom: calc(var(--scale) * 0px);
@@ -140,20 +167,20 @@ color: white;}
 }
 
 .effect {
-  padding-left: calc(var(--scale) * 10px);
+  padding-left: calc(var(--scale) * 20px);
   padding-right: calc(var(--scale) * 20px);
   margin-right: calc(var(--scale) * 20px);
   font-style: italic;
   font-weight: bold;
   text-transform: uppercase;
   font-size: calc(var(--scale) * 60px);
-  margin-left: calc(var(--scale) * -40px);
+  margin-left: calc(var(--scale) * -10px);
   display: inline-block; 
-    transform: translateY(-5px); 
+  position: absolute;
+  transform: translateY(-60px);
 }
 
 .text-block {
-  margin: calc(var(--scale) * 30px);
   margin-top: calc(var(--scale) * 0px);
   margin-bottom: calc(var(--scale) * 0px);
   display: block;
@@ -165,12 +192,42 @@ color: white;}
   width: -webkit-fill-available;
   font-size: calc(var(--scale) * 70px);
   background-repeat: round;
-  border-radius: 0px 0px calc(var(--scale) * 50px) calc(var(--scale) * 50px);
+  background-color: #f4f4f4;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .cardtext {
   padding: calc(var(--scale) * 10px);
   margin: 0px;
+  text-shadow: white 0px 0px 10px;
+}
+
+.type {
+  position: absolute;
+margin-top: -22px;
+margin-left: 220px;
+font-size: 30px;
+text-shadow: 0 2px white;
+color: #000000;
+width: 100px;
+text-align: center;
+background-color: white;
+border: inset silver calc(var(--scale) * 10px);
+}
+
+
+.num {position: absolute;
+margin-top: 2px;
+margin-left: 480px;
+font-size: 22px;
+text-shadow: 0 2px white;
+color: #000000;
+width: 60px;
+text-align: center;
 }
 
 .Soul .soul-block {
@@ -178,9 +235,14 @@ color: white;}
 }
 
 .Soul .name-block {
-  border-radius: calc(var(--scale) *50px) 0px 0px 0px;
 }
 
 .undefined {
   display: none;
 }
+
+.Spell .name-block .soul {background: transparent!important; border: none; box-shadow: none; text-shadow: none; text-align: center; margin-top: 8px;}
+
+.Lord .name-block .soul::before, .Spell .name-block .soul::before {margin-top: 0px; opacity: 0.9;}
+
+.Spell .effect {display: none;}

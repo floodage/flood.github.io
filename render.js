@@ -54,8 +54,13 @@ export function renderFullCard(num) {
 
   const elements = document.querySelectorAll(".card" + num + " .effect");
 
+  
   elements.forEach((element) => {
-    element.classList.add(cards[num]["effect"]);
+    console.log(cards[num].effect)
+    if (cards[num].effect != ""){
+      element.classList.add(cards[num]["effect"]);
+
+    }
   });
 
   if (cards[num]["type"] != "Soul") {

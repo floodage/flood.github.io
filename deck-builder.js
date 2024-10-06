@@ -1,7 +1,7 @@
 
 var searchBox = document.getElementById("cardbox")
 var deckBox = document.getElementById("deckbox");
-var totalCards = 36;
+var totalCards = 72;
 var decklist = []
 
 import { cards } from "./load.js";
@@ -60,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   
     newChild.addEventListener('contextmenu', function (event) {
-        console.log("renderfull")
       document.getElementById("cardspot").innerHTML = "";
   
       var clone = document.getElementById("clone").cloneNode(true);

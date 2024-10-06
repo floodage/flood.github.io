@@ -8,7 +8,7 @@ button {
 }
 
 body {
-  background: grey;
+  background: white;
   display: flex;
   margin: auto;
   flex-wrap: wrap;
@@ -17,6 +17,11 @@ body {
 .board > div, .hand > div, #searchbox > div {
   width: 180px;
 }
+
+.xcard8,.xcard17,.xcard25, .xcard35, .xcard44, .xcard53, .xcard62 {
+  margin-bottom: 162px;
+}
+
 
 .debug {display: none;}
 
@@ -127,7 +132,9 @@ body {
 .mini .soul-block {
   position: absolute;
   margin-left: calc(var(--scale) * -7px);
-  margin-top: calc(var(--scale) * 10px);
+  margin-top: calc(var(--scale) * 100px);
+  background-color: grey;
+  
 }
 
 .mini .soul {
@@ -135,20 +142,19 @@ body {
   height: calc(var(--scale) * 20px);
   width: calc(var(--scale) * 20px);
   border-radius: calc(var(--scale) * 100px);
-  margin: calc(var(--scale) * 15px);
+  margin: calc(var(--scale) * 8px);
   color: white;
   font-size: calc(var(--scale) * 50px);
   background: grey;
   font-weight: bold;
   z-index: 4;
-
 }
 
 #cardspot {display: flex;}
 
 .mini .effect {font-size: 20px;
 position: absolute;
-margin-top: 140px;
+margin-top: 200px;
 margin-left: 10px;}
 
 .mini.red, .mini.blue, .mini.green {background: none;}
@@ -171,9 +177,21 @@ margin-left: 10px;}
   margin-top: 0px;
   margin-left: 0px;
   padding: 0px;
+  display: none;
 }
 
 .mini .soul-block {
-  margin-top: 40px;
+  margin-top: -0px;
 }
 
+.mini.blue .art {
+border-color: rgb(84, 84, 238) !important;
+}
+
+.mini.green .art{
+border-color: rgb(98, 248, 98) !important;
+}
+
+.mini.red .art{
+  border-color: rgb(240, 81, 81) !important;
+}

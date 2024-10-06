@@ -3,7 +3,7 @@ export let cards = [];
 var url = "cards.json"; 
 var url =
   "https://script.google.com/macros/s/AKfycbwjSmI_tuT9g_spEjwaJCwNlj5AgXrHHIp-525iN6VJFyCbXGtAf4YtiqejxZbbnmR63g/exec";
-  let totalCards = 72; //total cards in the set
+  let totalCards = 36*1; //total cards in the set
   let css = []; // css to format all off the cards
 
 

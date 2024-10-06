@@ -22,17 +22,13 @@ function removeOneInstance(array, value) {
 }
 export var current_card = undefined
 
-export function renderedClick(location, element, num) {
+export function renderedClick(location, element, num, attach) {
   let parsed = parseInputString(location);
   let { zone, slot } = parsed;
+  if (attach == false){
   if (current_card == undefined && zone == "board"){
-    console.log("handle click",gamestate.board[slot],num)
     current_card = num;
     removeOneInstance(gamestate.board[slot], num)
-
-
-
-
 
   
   } else if (current_card == undefined) {
@@ -41,12 +37,14 @@ export function renderedClick(location, element, num) {
     gamestate[zone].splice(slot, 1);
 
   } else if (current_card != undefined && zone == "board"){
-    console.log(gamestate.board[slot], "add to pile")
     gamestate.board[slot].push(current_card)
     current_card = undefined;
     
   }
-
+} if (attach == true){
+  gamestate.board[slot].unshift(current_card)
+  current_card = undefined;
+}
   renderGamestate()
   event.stopPropagation();
 }
@@ -133,12 +131,9 @@ document.addEventListener("DOMContentLoaded", function () {
       
 
     } else if (current_card == undefined) {
-      console.log()
     }
   });
 });
-
-
 
 
 export function draw(x) {
@@ -181,5 +176,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("themeDeck2").addEventListener("click", function () {
+    
+    document.getElementById('deckInput').value = "31,30,28,24,12,14,19,13,4,4,5,5,7,7,6,6,3,3,2,2"
+    document.getElementById("themeDeck2").style.display= "none";
+    
+  });
+});
 
 
+document.addEventListener('keydown', function(event) {
+  const keyNumber = parseInt(event.key, 10);
+  if ([1, 2, 3, 4].includes(keyNumber)) {
+    if (gamestate.board[keyNumber-1].length > 0){
+     
+      document.getElementById("board"+(keyNumber-1)).style.marginTop = "-200px";
+
+    }
+  }
+});

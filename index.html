@@ -8,7 +8,7 @@
 
   <link rel="stylesheet" href="styles/cardstyles.css" />
   <link rel="stylesheet" href="styles/boardstyle.css" />
-  
+
 
   <script type="module" src="load.js" defer></script>
   <script type="module" src="render.js" defer></script>
@@ -17,14 +17,16 @@
 
 </head>
 
-<body oncontextmenu="return false;">
-  
+<body>
+
   <div class="container" id="gameContainer">
     <div class="debug" id="debugMenu">
-     
+
       <button id="printAllButton">Print All</button>
       <button id="getDeck">Load Deck</button>
       <button id="themeDeck1">Red/Blue</button>
+      <button id="themeDeck2">Green/Blue</button>
+
 
       <input id="deckInput" type="text">
 
@@ -43,43 +45,48 @@
       </div>
       <b class="effect"></b>
     </div>
+
+    <!--full card-->
     <div class="card" id="clone">
-      <div class="cardbg"></div>
-      <div class="name-block">
-        <p class="name"></p>
-        <div class="soul"></div>
-      </div>
+        <div class="soul-block">
+          <div class="soul"></div>
+          <div class="soul"></div>
+        </div>
+        <div class="container">
+          <div class="name-block">
+            <p class="name"></p>
+          </div>
+          <div class="art"></div>
+        </div>
+        <div class="effect"></div>
 
-      <div class="soul-block">
-        <div class="soul"></div>
-        <div class="soul"></div>
-      </div>
-      <div class="art"></div>
-      <b class="effect"></b>
-      <div class="text-block">
-        <p class="cardtext"></p>
-      </div>
-      <span class="num"></span>
-      <span class="type"></span>
+        <div class="text-block">
+          <p class="cardtext"> </p>
+          </p>
+        </div>
     </div>
-  <div class="searchbox" id="searchbox"></div>
 
-  <div class="boardrow">
-    <div>
-      <div class="holder">
-        <div class="board" id="board"></div>
-        
+
+    <!--full card-->
+    <div class="searchbox" id="searchbox"></div>
+
+    <div class="boardrow">
+      <div>
+
+        <div class="holder">
+          <div class="board" id="board"></div>
+
+        </div>
+        <div class="holder">
+          <div class="deck pile" id="deck"></div>
+          <div class="discard pile" id="discard"></div>
+        </div>
       </div>
-      <div class="holder">
-        <div class="deck pile" id="deck"></div>
-        <div class="discard pile" id="discard"></div>
+      <div>
+        <div class="hand" id="hand">
+        </div>
       </div>
     </div>
-    <div>
-      <div class="hand" id="hand">
-      </div>
-    </div>
-  </div>
   </div>
   <div id="cardspot"></div>
 </body>

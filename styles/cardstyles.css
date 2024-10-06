@@ -1,248 +1,188 @@
 @charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.soul.b::before,
-.blue .name-block .soul::before {
-  content: "水";
-}
 
-.soul.r::before,
-.red .name-block .soul::before {
-  content: "火";
-}
-
-.soul.g::before,
-.green .name-block .soul::before {
-  content: "山";
-}
-
-.soul.p::before,
-.purple .name-block .soul::before {
-  content: "暝";
-}
-
-.soul.w::before {
-  content: "白";
-}
-
-
-.blue,
-.blue .health,
-.soul.b, .blue .name-block .soul, .blue .name-block  {
-  background: url(/art/blue_background.png);
-}
-
-.green,
-.green .health,
-.soul.g, .green .name-block .soul, .green .name-block {
-  background: url(/art/green_background.png)
-}
-
-.red,
-.red .health,
-.soul.r, .red .name-block .soul, .red .name-block {
-  background: url(/art/red_background.png)
-}
-
-.purple,
-.purple .health,
-.soul.p, .purple .name-block .soul, .purple .name-block {
-  background: url(/art/purple_background.png)
+p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 :root {
-  --scale: 0.8;
-}
 
-.effect, .soul {    
-  box-shadow: 0 8px 8px rgba(0, 0, 0, .5), 0 0 0 3px #3f3f46, 0 0 0 5px #a1a1a1;
-  text-shadow: 0 0 10px #000;
-  border-width: 2px;
-  border-color: rgb(219 39 119);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  background-image: linear-gradient(to right, var(--tw-gradient-stops));
-  
-  
-  --tw-text-opacity: 1;
-color: white;}
+  --soul-size: 34px;
 
-.entry { 
-  border: outset rgb(255, 193, 77) calc(var(--scale) * 5px);
-  --tw-gradient-from: #ebaa1f;
-  --tw-gradient-stops: var(--tw-gradient-from), #ff7b00, var(--tw-gradient-to);
-  --tw-gradient-to: #da821e;
-  border-radius: calc(var(--scale) * 0px) calc(var(--scale) * 40px) calc(var(--scale) * 40px) calc(var(--scale) * 0px);
-  padding-right: 10px;
-}
-
-.ability {
-  border: outset #b872ff calc(var(--scale) * 5px);
-  --tw-gradient-from: #7b229e;
-  --tw-gradient-stops: var(--tw-gradient-from), #b60cfa, var(--tw-gradient-to);
-  --tw-gradient-to: #831bac;
-  border-radius: calc(var(--scale) * 50px) calc(var(--scale) * 0px) calc(var(--scale) * 50px) calc(var(--scale) * 0px);
-}
-
-.aura {
-  border: outset #72ffbd calc(var(--scale) * 5px);
-  --tw-gradient-from: #43cf89;
-  --tw-gradient-stops: var(--tw-gradient-from), #0cfa6f, var(--tw-gradient-to);
-  --tw-gradient-to: #34d873;
-  border-radius: calc(var(--scale) * 50px) calc(var(--scale) * 50px) calc(var(--scale) * 0px) calc(var(--scale) * 0px);
 }
 
 
 
-.name-block, .art, .text-block {box-shadow: 0 8px 8px rgba(0, 0, 0, .5), 0 0 0 3px #3f3f46, 0 0 0 5px #a1a1a1;   border-width: 2px;
-}
 .card {
-  min-height: calc(var(--scale) * 1144px);
-  max-height: calc(var(--scale) * 1144px);
-  min-width: calc(var(--scale) * 819px);
-  max-width: calc(var(--scale) * 819px);
+  position: relative;
+  width: 228px;
+  height: 318px;
   box-sizing: border-box;
-  margin: calc(var(--scale) * 106.8px);
-  margin-left: calc(var(--scale) * 87px);
-  border: calc(var(--scale) * 70px) ridge white;
-  border-radius: 10px;
-}
+  border: 14px solid #010101;
 
+  margin: 0px;
+  background-size: cover;
+  page-break-inside: avoid; /* Prevent breaking individual cards */ 
+}
 .name-block {
   display: flex;
   justify-content: space-between;
-  margin: calc(var(--scale) * 0px);
-  margin-bottom: calc(var(--scale) * 0px);
-  border: outset silver calc(var(--scale) * 10px);
-  color:white;
-  background-size: cover!important;
-}
+  margin: 0px;
+  margin-bottom: 0px;
+  border: outset silver 3px;
+  color: rgb(0, 0, 0);
+  background: white;
 
-.name-block .soul {
-  position: absolute;
-  margin-left:450px;
-  margin-top: 0px;
 }
 .name {
-  font-size: calc(var(--scale) * 70px);
-  padding: calc(var(--scale) * 8px);
+  font-size: 20px;
+  padding: 4px;
+  font-weight: 700;
 }
 
-.name::before {
-  text-shadow: #000 1px 0 10px;}
-
 .soul-block {
+  top:40px;
   position: absolute;
-  margin-left: calc(var(--scale) * -40px);
-  margin-top: calc(var(--scale) * 10px);
+  margin-left: -0px;
+  margin-top: 0px;
 }
 
 .soul {
-  border: outset rgb(255, 255, 255) calc(var(--scale) * 12px);
-  height: calc(var(--scale) * 100px);
-  width: calc(var(--scale) * 100px);
-  border-radius: calc(var(--scale) * 100px);
-  margin: calc(var(--scale) * 15px);
-  color: white;
-  font-size: calc(var(--scale) * 50px);
-  background: rgb(88, 88, 88);
-
+  margin: 0px;
+  image-rendering: pixelated;
+  width: var(--soul-size);
+  height: var(--soul-size);
 }
 
-.soul::before {
-  margin-left: calc(var(--scale) * 15px);
-}
 
 .art {
-  height: calc(var(--scale) * 600px);
-  margin: calc(var(--scale) * 0px);
+  height: 180px;
   background-size: cover !important;
-  margin-top: calc(var(--scale) * 00px);
-  margin-bottom: calc(var(--scale) * 0px);
-  border: inset silver calc(var(--scale) * 10px);
+  margin-top: 00px;
+  margin-bottom: 0px;
+  border: inset silver 2px;
+
+
 }
 
 .effect {
-  padding-left: calc(var(--scale) * 20px);
-  padding-right: calc(var(--scale) * 20px);
-  margin-right: calc(var(--scale) * 20px);
+  position: absolute;
+top:200px;
   font-style: italic;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: calc(var(--scale) * 60px);
-  margin-left: calc(var(--scale) * -10px);
-  display: inline-block; 
-  position: absolute;
-  transform: translateY(-60px);
+  font-size: 20px;
+  
+  
 }
 
+
+.entry {
+ background-color: orange;
+}
+
+.ability {
+  background-color: purple;
+}
+
+.aura {
+  background-color: chartreuse;
+}
+
+.Spell .effect {
+  display: none;
+}
+
+
 .text-block {
-  margin-top: calc(var(--scale) * 0px);
-  margin-bottom: calc(var(--scale) * 0px);
+  margin-top: 0px;
+  margin-bottom: 0px;
   display: block;
-  height: calc(var(--scale) * 290px);
-  background: rgb(255, 255, 255);
-  background: url(/art/background.png);
-  border: outset silver calc(var(--scale) * 10px);
+  height: 72px;
+background: white;
+  border: outset silver 2px;
   padding: 0px;
   width: -webkit-fill-available;
-  font-size: calc(var(--scale) * 70px);
+  font-size: 16px;
   background-repeat: round;
-  background-color: #f4f4f4;
-  text-align: center;
 
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
 }
 
 .cardtext {
-  padding: calc(var(--scale) * 10px);
+  padding: 0px;
+  padding-top: 0px;
   margin: 0px;
-  text-shadow: white 0px 0px 10px;
-}
+  padding: 10px;
+  font-size: 16px;
 
-.type {
-  position: absolute;
-margin-top: -22px;
-margin-left: 220px;
-font-size: 30px;
-text-shadow: 0 2px white;
-color: #000000;
-width: 100px;
-text-align: center;
-background-color: white;
-border: inset silver calc(var(--scale) * 10px);
-}
-
-
-.num {position: absolute;
-margin-top: 2px;
-margin-left: 480px;
-font-size: 22px;
-text-shadow: 0 2px white;
-color: #000000;
-width: 60px;
-text-align: center;
 }
 
 .Soul .soul-block {
   display: none;
 }
 
-.Soul .name-block {
-}
-
 .undefined {
   display: none;
 }
 
-.Spell .name-block .soul {background: transparent!important; border: none; box-shadow: none; text-shadow: none; text-align: center; margin-top: 8px;}
+.Spell .effect {
+  display: none;
+}
 
-.Lord .name-block .soul::before, .Spell .name-block .soul::before {margin-top: 0px; opacity: 0.9;}
+.Spell .container {
+  display: flex;
+  flex-direction: column-reverse;
+}
 
-.Spell .effect {display: none;}
+
+
+.soul.b {
+  background: url(/art/type_icons.png);
+  background-size: cover;
+}
+
+.soul.g
+ {background: url(/art/type_icons.png) calc( 6 * var(--soul-size));
+  background-size: cover;}
+
+.soul.p{background: url(/art/type_icons.png) calc( 5  * var(--soul-size)); 
+  background-size: cover;}
+
+  .soul.r {
+
+    background: url(/art/type_icons.png) calc( 4 * var(--soul-size));
+    background-size: cover;
+  }
+
+.soul.t {background: url(/art/type_icons.png) calc( 3 * var(--soul-size));
+    background-size: cover;}
+
+.soul.y {background: url(/art/type_icons.png) calc( 2  * var(--soul-size));
+  background-size: cover;}
+
+.soul.w {background: url(/art/type_icons.png) calc( 1 * var(--soul-size));
+  background-size: cover;}
+
+
+
+  .blue .name-block, .blue .text-block{
+    background-color: #d2d2ff;
+  }
+
+  .green .name-block, .green .text-block{
+    background-color: #d2ffd2;
+  }
+  
+  .red .name-block, .red .text-block{
+    background-color: #ffd2d2;
+  }
+  

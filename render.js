@@ -8,11 +8,13 @@ function renderMiniCard(location, num) {
   const newChild = parent.appendChild(document.createElement("div"));
   newChild.id = num;
   newChild.onclick = function () {
-    renderedClick(location, newChild, num)
+    renderedClick(location, newChild, num, false)
   }
 
   newChild.addEventListener('contextmenu', function (event) {
     event.preventDefault(); // Prevent the default context menu from appearing
+
+    if (current_card == undefined){
     document.getElementById("cardspot").innerHTML = "";
 
     var clone = document.getElementById("clone").cloneNode(true);
@@ -21,6 +23,10 @@ function renderMiniCard(location, num) {
 
     document.getElementById("cardspot").appendChild(clone);
     renderFullCard(newChild.id);
+  } if (current_card != undefined){
+    
+    renderedClick(location, newChild, num,true) 
+  }
   });
 
   var clone = document.getElementById("miniclone").cloneNode(true);
@@ -56,7 +62,6 @@ export function renderFullCard(num) {
 
   
   elements.forEach((element) => {
-    console.log(cards[num].effect)
     if (cards[num].effect != ""){
       element.classList.add(cards[num]["effect"]);
 
@@ -85,8 +90,13 @@ export function renderGamestate() {
   renderHand()
   clearSearchBox()
   renderBoard()
-  console.log("gamestate",gamestate, current_card)
-  
+  if (current_card != undefined){
+    document.body.style.cursor =     "grabbing";
+
+  } else {
+    document.body.style.cursor = "grab";
+
+  }
 }
 
 export function clearSearchBox() {
@@ -131,7 +141,6 @@ function renderDiscard() {
 function renderBoard() {
   document.getElementById("board").innerHTML = "";
   for (var i = 0; i < gamestate.board.length; i++) {
-    //console.log("gamestate.boardi0",gamestate.board[i][0])
 
     if (gamestate.board[i][0] !=undefined){
       const parent = document.getElementById("board");

@@ -3,18 +3,36 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-:root {
 
-}
+  :root {
+    --color-blue: #4D4DFF;
+    --color-green: #3abf3a;
+    --color-purple: #BF3ABF;
+    --color-red: #BF3A3A;
+    --color-teal: #3ABFBF;
+    --color-yellow: #BFBF3A;
+
+    --color-l-blue: #D1D1FF ;
+    --color-l-green: #D1F1D1 ;
+    --color-l-purple: #E8CCE8  ;
+    --color-l-red: #E5C1C1  ;
+    --color-l-teal: #D0E7E7  ;
+    --color-l-yellow: #E4E79B  ;
+  }
+
+
 
 @page { 
   size: auto;
-  margin: 20mm 0 10mm 0;
+  margin: 10mm 0 10mm 0;
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.card0 {
 }
 
 body {
@@ -24,7 +42,7 @@ body {
   display: flex;
   margin: auto;
   flex-wrap: wrap;
-  background-color: #fff;
+  background-color: #f4f4f4;
 }
 
 
@@ -37,7 +55,7 @@ body {
 }
 .card {
   position: relative;
-  width: 228px;
+  width: 238px;
   height: 318px;
   border: 14px solid #f3f3f3;
   margin: 0px;
@@ -46,7 +64,7 @@ body {
   background-color: #3f3f46;
   margin:0px;
   border-radius: 10px;
-  border-color: #f3f3f3;
+  border-color: #f4f4f4;
 
 }
 
@@ -105,9 +123,8 @@ body {
   text-transform: uppercase;
   font-size: 18px;
   padding-left: 8px;
-  text-shadow: 0 0 10px #000;
-  border-width: 2px;
-  
+  text-shadow: 0 0 5px #000;
+
   
   --tw-text-opacity: 1;
 color: white;
@@ -115,12 +132,16 @@ color: white;
 
 .Soul .effect {
   top:210px;
-
 }
 
 .Spell .effect {
   display: none;
 }
+
+.Item .effect {
+  left:120px;
+}
+
 
 
 .text-block {
@@ -205,7 +226,7 @@ color: white;
   display: none;
 }
 
-.Spell .container {
+.Spell .container, .Item .container {
   display: flex; 
   flex-direction: column;
   
@@ -235,9 +256,6 @@ color: white;
   font-size: 2px;
   background-image: url(/art/type_icons.png);
   background-size:98px;
-  
-
-
 }
 
 
@@ -273,12 +291,58 @@ color: white;
   background-position: 20px;
 
 }
-.soul.b, .blue .color, .b.icon, .blue.card { background-color: #4D4DFF;}
-.soul.g, .green .color, .g.icon, .green.card {background-color: #3ABF3A; }
-.soul.p, .purple .color, .p.icon, .purple.card { background-color:#BF3ABF}
-.soul.r, .red .color, .r.icon, .red.card {background-color: #BF3A3A; }
-.soul.t, .teal .color, .t.icon, .teal.card { background-color: #3ABFBF}
-.soul.y, .yellow .color, .y.icon, .yellow.card { background-color:#BFBF3A}
+.soul.b, .blue .color, .b.icon, .blue.card {
+  background-color: var(--color-blue);
+}
+
+.soul.g, .green .color, .g.icon, .green.card {
+  background-color: var(--color-green);
+}
+
+.soul.p, .purple .color, .p.icon, .purple.card {
+  background-color: var(--color-purple);
+}
+
+.soul.r, .red .color, .r.icon, .red.card {
+  background-color: var(--color-red);
+}
+
+.soul.t, .teal .color, .t.icon, .teal.card {
+  background-color: var(--color-teal);
+}
+
+.soul.y, .yellow .color, .y.icon, .yellow.card {
+  background-color: var(--color-yellow);
+}
+
+
+.blue .name-block, .blue .text-block {
+  background-color: var(--color-l-blue);
+}
+
+.green .name-block, .green .text-block {
+  background-color: var(--color-l-green);
+}
+
+.purple .name-block, .purple .text-block {
+  background-color: var(--color-l-purple);
+}
+
+.red .name-block, .red .text-block {
+  background-color: var(--color-l-red);
+}
+
+.teal .name-block, .teal .text-block {
+  background-color: var(--color-l-teal);
+}
+
+.yellow .name-block, .yellow .text-block {
+  background-color: var(--color-l-yellow);
+}
+
+.name-block, .text-block {
+  background-color: white!important;
+}
 
 .icon.b {
   background-position: 0;
@@ -298,11 +362,11 @@ color: white;
 
 }
 .icon.t {
-  background-position: -80px;
+  background-position: -56px;
 
 }
 .icon.y {
-  background-position: -80px;
+  background-position: -70px;
 
 }
 
@@ -333,16 +397,3 @@ color: white;
      border-radius: 100% 100% 00% 0% / 100% 100% 0% 0%;
    }
    
-
-  .blue .name-block, .blue .text-block{
-    background-color: #d2d2ff;
-  }
-
-  .green .name-block, .green .text-block{
-    background-color: #d2ffd2;
-  }
-  
-  .red .name-block, .red .text-block{
-    background-color: #ffd2d2;
-  }
-  

@@ -1,101 +1,121 @@
 @charset "UTF-8";
 
+
 @import url('https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+:root {
+
+}
+
+@page { 
+  size: auto;
+  margin: 20mm 0 10mm 0;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-p {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+body {
+  padding:40px;
+  page-break-inside: avoid;
+  background-color: #010101;
+  display: flex;
+  margin: auto;
+  flex-wrap: wrap;
+  background-color: #fff;
 }
 
-:root {
 
-  --soul-size: 34px;
-
+.name-block, .art, .effect, .text-block, .soul, .color {
+  box-shadow: 0 8px 8px rgba(0, 0, 0, .5), 0 0 0 3px #dfdfdf, 0 0 0 5px #a1a1a1;   
 }
 
-
-
+.container{
+  margin: 10px;
+}
 .card {
   position: relative;
   width: 228px;
   height: 318px;
-  box-sizing: border-box;
-  border: 14px solid #010101;
-
+  border: 14px solid #f3f3f3;
   margin: 0px;
   background-size: cover;
-  page-break-inside: avoid; /* Prevent breaking individual cards */ 
+  page-break-inside: avoid;
+  background-color: #3f3f46;
+  margin:0px;
+  border-radius: 10px;
+  border-color: #f3f3f3;
+
 }
+
 .name-block {
   display: flex;
   justify-content: space-between;
   margin: 0px;
   margin-bottom: 0px;
-  border: outset silver 3px;
   color: rgb(0, 0, 0);
   background: white;
+  height: 34px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.Soul .name-block {
+  border-radius: 10px 10px 0px 0px;
 
 }
+
 .name {
-  font-size: 20px;
-  padding: 4px;
+  font-size: 18px;
   font-weight: 700;
+  padding: 4px;
 }
 
 .soul-block {
-  top:40px;
+  top:36px;
   position: absolute;
-  margin-left: -0px;
-  margin-top: 0px;
 }
 
 .soul {
-  margin: 0px;
-  image-rendering: pixelated;
-  width: var(--soul-size);
-  height: var(--soul-size);
+  margin-top: 12px;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  background: white;
+  border-radius: 100%;
 }
 
 
 .art {
-  height: 180px;
+  height: 174px;
   background-size: cover !important;
-  margin-top: 00px;
   margin-bottom: 0px;
-  border: inset silver 2px;
+}
 
-
+.Soul .art {
+  height: 194px;
 }
 
 .effect {
   position: absolute;
-top:200px;
+  top:190px;
   font-style: italic;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 20px;
+  font-size: 18px;
+  padding-left: 8px;
+  text-shadow: 0 0 10px #000;
+  border-width: 2px;
   
   
+  --tw-text-opacity: 1;
+color: white;
 }
 
+.Soul .effect {
+  top:210px;
 
-.entry {
- background-color: orange;
-}
-
-.ability {
-  background-color: purple;
-}
-
-.aura {
-  background-color: chartreuse;
 }
 
 .Spell .effect {
@@ -107,23 +127,70 @@ top:200px;
   margin-top: 0px;
   margin-bottom: 0px;
   display: block;
-  height: 72px;
-background: white;
-  border: outset silver 2px;
+  height: 64px;
+  background: white;
   padding: 0px;
   width: -webkit-fill-available;
   font-size: 16px;
   background-repeat: round;
-
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  justify-content: center;
 }
 
+.Soul .text-block {
+  border-radius: 0px 0px 10px 10px;
+  height: 44px;
+
+}
 .cardtext {
   padding: 0px;
   padding-top: 0px;
-  margin: 0px;
-  padding: 10px;
+  
+  padding: 4px;
   font-size: 16px;
+  text-align: center;
+  margin: auto;
+ 
+}
 
+.color{
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  margin: 4px;
+  border-radius: 100%;
+
+}
+
+.num,.type, .footnote {
+  position: absolute;
+  font-size: 12px;
+  color: black;
+  top: 278px;
+  left: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+
+  background-color: #f3f3f3;
+  border-radius: 4px;
+  padding: 4px;
+  display: none;
+ 
+}
+
+
+
+.type {
+  left: 0px;
+  padding-left: 90px;
+  padding-right: 90px;
+}
+
+.footnote {
+  display:none;
 }
 
 .Soul .soul-block {
@@ -139,40 +206,133 @@ background: white;
 }
 
 .Spell .container {
-  display: flex;
-  flex-direction: column-reverse;
+  display: flex; 
+  flex-direction: column;
+  
+}
+
+.Spell .name-block {
+  order: 2;
+}
+
+.Spell .art {
+  order: 1;
+}
+.Spell .text-block {
+  order: 3;
+  
+}
+.soul, .color {
+  background-image: url(/art/type_icons.png);
+  background-size:140px;
+
+}
+.icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  font-size: 2px;
+  background-image: url(/art/type_icons.png);
+  background-size:98px;
+  
+
+
 }
 
 
+.soul.b, .blue .color {
 
-.soul.b {
-  background: url(/art/type_icons.png);
-  background-size: cover;
 }
 
-.soul.g
- {background: url(/art/type_icons.png) calc( 6 * var(--soul-size));
-  background-size: cover;}
+.soul.g, .green .color {
+  background-position: -20px;
+}
 
-.soul.p{background: url(/art/type_icons.png) calc( 5  * var(--soul-size)); 
-  background-size: cover;}
+.soul.p, .purple .color {
+  background-position: -40px;
 
-  .soul.r {
+}
 
-    background: url(/art/type_icons.png) calc( 4 * var(--soul-size));
-    background-size: cover;
-  }
+.soul.r, .red .color {
+  background-position: -60px;
 
-.soul.t {background: url(/art/type_icons.png) calc( 3 * var(--soul-size));
-    background-size: cover;}
+}
 
-.soul.y {background: url(/art/type_icons.png) calc( 2  * var(--soul-size));
-  background-size: cover;}
+.soul.t, .teal .color {
+  background-position: -80px;
 
-.soul.w {background: url(/art/type_icons.png) calc( 1 * var(--soul-size));
-  background-size: cover;}
+}
+
+.soul.y, .yellow .color {
+  background-position: -100px;
+
+}
+
+.soul.w {
+  background-position: 20px;
+
+}
+.soul.b, .blue .color, .b.icon, .blue.card { background-color: #4D4DFF;}
+.soul.g, .green .color, .g.icon, .green.card {background-color: #3ABF3A; }
+.soul.p, .purple .color, .p.icon, .purple.card { background-color:#BF3ABF}
+.soul.r, .red .color, .r.icon, .red.card {background-color: #BF3A3A; }
+.soul.t, .teal .color, .t.icon, .teal.card { background-color: #3ABFBF}
+.soul.y, .yellow .color, .y.icon, .yellow.card { background-color:#BFBF3A}
+
+.icon.b {
+  background-position: 0;
+
+}
+.icon.g {
+  background-position: -14px;
+
+}
+
+.icon.p {
+  background-position: -28px;
+
+}
+.icon.r {
+  background-position: -42px;
+
+}
+.icon.t {
+  background-position: -80px;
+
+}
+.icon.y {
+  background-position: -80px;
+
+}
+
+.soul.w {background-color: #858585;}
+
+    
 
 
+
+  .entry {
+    background-color: orange;
+    width: 76px;
+    padding-right: 20px;
+    border-radius: 10% 50% 50% 10% / 100% 100% 100% 100%;
+   }
+   
+   .ability {
+     background-color: purple;
+     width: 90px;
+     border-radius: 100% 10% 100% 10% / 50% 100% 50% 100% ;
+
+   }
+   
+   .aura {
+     background-color: chartreuse;
+     width: 76px;
+     padding-left: 12px;
+     border-radius: 100% 100% 00% 0% / 100% 100% 0% 0%;
+   }
+   
 
   .blue .name-block, .blue .text-block{
     background-color: #d2d2ff;

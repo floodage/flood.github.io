@@ -82,6 +82,16 @@ export function renderFullCard(num) {
 
     }
   }
+
+  
+
+  const textElements = document.querySelectorAll(".card" + num + " .cardtext");
+
+textElements.forEach((element) => {
+  element.innerHTML = cards[num]["cardtext"];
+});
+
+
 }
 
 export function renderGamestate() {
@@ -135,8 +145,6 @@ function renderDiscard() {
   document.getElementById("discard").innerHTML = gamestate.discard.length;
 
 }
-
-
 
 function renderBoard() {
   document.getElementById("board").innerHTML = "";

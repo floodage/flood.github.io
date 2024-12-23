@@ -1,11 +1,12 @@
 import { renderFullCard } from "./render.js";
 export let cards = [];
-var url = "cards.json"; 
+
 var url =
   "https://script.google.com/macros/s/AKfycbwjSmI_tuT9g_spEjwaJCwNlj5AgXrHHIp-525iN6VJFyCbXGtAf4YtiqejxZbbnmR63g/exec";
-  let totalCards = 36*1; //total cards in the set
+  let totalCards = 36*2; //total cards in the set
   let css = []; // css to format all off the cards
-
+  let starter = 36*0; 
+  var url = "cards.json"; 
 
 
   export function load() {
@@ -16,7 +17,7 @@ var url =
           cards.push(card);
         });
   
-        for (let i = 0; i < totalCards; i++) {
+        for (let i = starter; i < totalCards; i++) {
           css.push(cards[i]["css"]);
         }
         let s = document.createElement("style");

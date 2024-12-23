@@ -8,10 +8,7 @@ button {
 }
 
 body {
-  background: white;
-  display: flex;
-  margin: auto;
-  flex-wrap: wrap;
+  
 }
 
 .board > div, .hand > div, #searchbox > div {
